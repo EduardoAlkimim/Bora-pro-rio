@@ -1,4 +1,11 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Bora pro Rio</title>
+<meta name="description" content="Lista de lugares no Rio pra galera votar e sugerir.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%278%27 fill=%27%23F2B705%27/%3E%3Cpath d=%27M4 14c4-5 8-5 12 0s8 5 12 0v5c-4 5-8 5-12 0s-8-5-12 0z%27 fill=%27%2313242B%27/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Figtree:wght@400;500;600;700&display=swap">
@@ -25,7 +32,10 @@
   --danger:#FF8A80; --wave:#E7F0EF;
 }
 *{box-sizing:border-box}
-body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5}
+html{color-scheme:light}
+[hidden]{display:none!important}
+img{max-width:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5}
 .wrap{max-width:1040px;margin:0 auto;padding-inline:16px}
 .calcadao{height:34px;background:var(--wave);
   -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='34' viewBox='0 0 96 34'%3E%3Cpath d='M0 10 C12 0 36 0 48 10 S84 20 96 10 L96 22 C84 32 60 32 48 22 S12 12 0 22Z'/%3E%3C/svg%3E") repeat-x left center/96px 34px;
@@ -86,16 +96,26 @@ label small{font-weight:400;color:var(--muted)}
 .formmsg.err{color:var(--danger)}
 .empty{color:var(--muted);padding:20px 0}
 .toast{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:10px 16px;border-radius:999px;font-weight:600;font-size:14px;z-index:20;max-width:calc(100% - 32px)}
-@media (max-width:560px){form.add{grid-template-columns:1fr}.grid{grid-template-columns:1fr}}
+@media (max-width:560px){.search{flex-basis:100%}.row .btn{flex:1}form.add{grid-template-columns:1fr}.grid{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:no-preference){.card{transition:border-color .15s}.vote{transition:background .15s,transform .1s}.vote:active{transform:scale(.96)}}
+.me{display:flex;flex-wrap:wrap;gap:8px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:10px 12px;max-width:520px}
+.me input{flex:1 1 180px;min-width:0}
+.me .hi{font-weight:600}
+.me.nudge{border-color:var(--sol);box-shadow:0 0 0 3px color-mix(in srgb,var(--sol) 40%,transparent)}
 </style>
-
+</head>
+<body>
 <div class="calcadao" aria-hidden="true"></div>
 <div class="wrap">
   <header class="hero">
     <div class="eyebrow">Rio de Janeiro · sem roteiro fixo</div>
     <h1>Bora pro <span class="sol">Rio</span></h1>
     <p class="lede">Lista de lugares pra galera escolher. Marca <b>Quero ir</b> nos que te interessam, e se faltar algum, adiciona lá embaixo. O mais votado sobe pro topo.</p>
+    <form class="me" id="meForm" autocomplete="off">
+      <span class="hi" id="meHi">Como a galera te chama?</span>
+      <input id="meName" maxlength="30" placeholder="Teu nome ou apelido" aria-label="Teu nome ou apelido">
+      <button class="btn" type="submit" id="meBtn">Entrar</button>
+    </form>
     <div class="stats" id="stats"><span><b>…</b>lugares</span></div>
   </header>
 </div>
@@ -122,7 +142,7 @@ label small{font-weight:400;color:var(--muted)}
 
     <section id="add">
       <h2>Faltou algum lugar?</h2>
-      <p class="sub">Adiciona aqui. Todo mundo que tem o link vê na hora.</p>
+      <p class="sub">Adiciona aqui. Todo mundo que tem o link vê.</p>
       <form class="add" id="addForm" autocomplete="off">
         <label class="full">Nome do lugar
           <input id="fName" required maxlength="80" placeholder="Ex.: Bar do Mineiro">
@@ -150,6 +170,7 @@ label small{font-weight:400;color:var(--muted)}
 <div class="calcadao" aria-hidden="true"></div>
 <div class="toast" id="toast" hidden></div>
 
+<script src="config.js"></script>
 <script>
 const CATS = [
   {id:"praia", label:"Praias"},
@@ -163,9 +184,9 @@ const CATS = [
 ];
 const catLabel = id => (CATS.find(c => c.id === id) || {label:"Outros"}).label;
 const AV_COLORS = ["#0E5A73","#2F7D4F","#B45309","#7C3AED","#BE185D","#0F766E","#9A3412","#1D4ED8"];
+const CFG = window.BORA_CONFIG || {};
 
-const S = {db:null, user:null, me:null, canWrite:true, canEdit:false,
-  places:[], votes:{}, profiles:{}, cat:"all", q:"", sort:"votos", loaded:false, confirmDel:null};
+const S = {me:loadMe(), places:[], votes:{}, cat:"all", q:"", sort:"votos", loaded:false, confirmDel:null, busy:new Set(), lastRaw:""};
 
 const $ = id => document.getElementById(id);
 const norm = s => (s||"").toString().normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase().trim();
@@ -183,128 +204,189 @@ function el(tag, attrs={}, ...kids){
 let toastT;
 function toast(msg){ const t=$("toast"); t.textContent=msg; t.hidden=false; clearTimeout(toastT); toastT=setTimeout(()=>t.hidden=true,2600); }
 
-function votersOf(pid){ return Object.keys(S.votes).filter(u => S.votes[u].has(pid)); }
-function mine(pid){ return !!(S.me && S.votes[S.me] && S.votes[S.me].has(pid)); }
+// ---- identidade (fica só neste navegador) ----
+function loadMe(){
+  let me=null;
+  try{ me=JSON.parse(localStorage.getItem("bora.me")||"null"); }catch{}
+  if (!me || !me.id) me={id:(crypto.randomUUID?crypto.randomUUID():String(Math.random()).slice(2)+Date.now()), name:""};
+  return me;
+}
+function saveMe(){ try{ localStorage.setItem("bora.me", JSON.stringify(S.me)); }catch{} }
+function renderMe(){
+  const f=$("meForm");
+  f.classList.remove("nudge");
+  if (S.me.name){
+    $("meHi").textContent="Oi, "+S.me.name+"!";
+    $("meName").hidden=true; $("meBtn").textContent="Trocar nome"; $("meBtn").className="btn ghost";
+  } else {
+    $("meHi").textContent="Como a galera te chama?";
+    $("meName").hidden=false; $("meBtn").textContent="Entrar"; $("meBtn").className="btn";
+  }
+}
+function needName(){
+  if (S.me.name) return false;
+  const f=$("meForm"); f.classList.add("nudge");
+  f.scrollIntoView({behavior:"smooth",block:"center"});
+  setTimeout(()=>$("meName").focus({preventScroll:true}),300);
+  toast("Coloca teu nome primeiro, pra galera saber quem votou");
+  return true;
+}
+$("meForm").addEventListener("submit", async ev=>{
+  ev.preventDefault();
+  if (S.me.name && $("meName").hidden){ $("meName").hidden=false; $("meName").value=S.me.name; $("meBtn").textContent="Salvar"; $("meBtn").className="btn"; $("meName").focus(); return; }
+  const n=$("meName").value.trim().slice(0,30);
+  if (!n){ $("meName").focus(); return; }
+  const changed = S.me.name && S.me.name!==n;
+  S.me.name=n; saveMe(); renderMe(); render();
+  if (changed){
+    try{ await api("votes?voter_id=eq."+encodeURIComponent(S.me.id),{method:"PATCH",body:{voter_name:n}}); refresh(); }catch{}
+  }
+});
+
+// ---- Supabase (REST) ----
+async function api(path, {method="GET", body, prefer}={}){
+  const headers={apikey:CFG.supabaseKey, Authorization:"Bearer "+CFG.supabaseKey};
+  if (body) headers["Content-Type"]="application/json";
+  if (prefer) headers.Prefer=prefer;
+  const r=await fetch(CFG.supabaseUrl.replace(/\/$/,"")+"/rest/v1/"+path,{method,headers,body:body?JSON.stringify(body):undefined});
+  if (!r.ok) throw new Error(r.status+" "+(await r.text()));
+  const t=await r.text(); return t?JSON.parse(t):null;
+}
+async function refresh(){
+  try{
+    const [places,votes]=await Promise.all([
+      api("places?select=id,name,category,area,note,link,added_by,added_by_name,created_at&limit=2000"),
+      api("votes?select=place_id,voter_id,voter_name&limit=10000")]);
+    const raw=JSON.stringify([places,votes]);
+    $("notice").hidden=true;
+    if (raw===S.lastRaw && S.loaded) return;
+    S.lastRaw=raw;
+    S.places=places;
+    const v={}; for (const x of votes){ (v[x.place_id] ||= []).push({id:x.voter_id,name:x.voter_name}); }
+    // mantém votos que eu acabei de dar/tirar e o servidor ainda não confirmou
+    for (const pid of S.busy){ const mine=(S.votes[pid]||[]).some(u=>u.id===S.me.id); const list=(v[pid]||[]).filter(u=>u.id!==S.me.id); if (mine) list.push({id:S.me.id,name:S.me.name}); v[pid]=list; }
+    S.votes=v; S.loaded=true; render();
+  }catch(e){
+    S.loaded=true;
+    const n=$("notice"); n.hidden=false; n.textContent="Não consegui carregar a lista. Confere a internet e recarrega a página.";
+    render();
+  }
+}
+
+// ---- render ----
+function votersOf(pid){ return S.votes[pid]||[]; }
+function mine(pid){ return votersOf(pid).some(u=>u.id===S.me.id); }
 function initials(name){ const p=(name||"?").trim().split(/\s+/); return ((p[0]||"?")[0]+(p.length>1?p[p.length-1][0]:"")).toUpperCase(); }
 function colorFor(id){ let h=0; for (const c of id) h=(h*31+c.charCodeAt(0))>>>0; return AV_COLORS[h%AV_COLORS.length]; }
-function nameOf(id){ if (id === S.me) return "Você"; const p=S.profiles[id]; return (p && p.name) || "Alguém"; }
+function shownName(u){ return u.id===S.me.id ? "Você" : (u.name||"Alguém"); }
+function safeUrl(u){ try{ const x=new URL(u); return x.protocol==="https:"||x.protocol==="http:"; }catch{ return false; } }
 
 function renderChips(){
   const box=$("chips"); box.textContent="";
   const count = id => id==="all" ? S.places.length : S.places.filter(p=>p.category===id).length;
-  const mk = (id,label) => el("button",{class:"chip",type:"button","aria-pressed":String(S.cat===id),onclick:()=>{S.cat=id;render();}},label,el("span",{class:"n"},String(count(id))));
-  box.append(mk("all","Tudo"));
-  if (S.me) box.append(el("button",{class:"chip",type:"button","aria-pressed":String(S.cat==="mine"),onclick:()=>{S.cat="mine";render();}},"Meus votos",el("span",{class:"n"},String(S.votes[S.me]?S.votes[S.me].size:0))));
-  for (const c of CATS) box.append(mk(c.id,c.label));
+  const mk = (id,label,n) => el("button",{class:"chip",type:"button","aria-pressed":String(S.cat===id),onclick:()=>{S.cat=id;render();}},label,el("span",{class:"n"},String(n)));
+  box.append(mk("all","Tudo",count("all")));
+  box.append(mk("mine","Meus votos",S.places.filter(p=>mine(p.id)).length));
+  for (const c of CATS) box.append(mk(c.id,c.label,count(c.id)));
 }
-
 function renderStats(){
-  const people = Object.keys(S.votes).filter(u=>S.votes[u].size>0).length;
-  const votes = Object.values(S.votes).reduce((a,s)=>a+s.size,0);
+  const ids=new Set(); let votes=0;
+  for (const p of S.places) for (const u of votersOf(p.id)){ ids.add(u.id); votes++; }
   const st=$("stats"); st.textContent="";
   st.append(el("span",{},el("b",{},String(S.places.length)),"lugares"),
             el("span",{},el("b",{},String(votes)),"votos"),
-            el("span",{},el("b",{},String(people)),people===1?"pessoa votou":"pessoas votaram"));
+            el("span",{},el("b",{},String(ids.size)),ids.size===1?"pessoa votou":"pessoas votaram"));
 }
-
 function card(p){
-  const vs = votersOf(p.id), on = mine(p.id);
-  const vote = el("button",{class:"vote",type:"button","aria-pressed":String(on),disabled:!S.canWrite||!S.me,
+  const vs=votersOf(p.id), on=mine(p.id);
+  const vote=el("button",{class:"vote",type:"button","aria-pressed":String(on),
       title:on?"Tirar meu voto":"Quero ir","aria-label":(on?"Tirar voto de ":"Quero ir: ")+p.name,
       onclick:()=>toggleVote(p.id)},
     el("span",{class:"c"},String(vs.length)), el("span",{class:"l"},on?"Vou!":"Quero ir"));
-  const q = encodeURIComponent([p.name,p.area,"Rio de Janeiro"].filter(Boolean).join(", "));
-  const links = el("div",{class:"links"},
+  const q=encodeURIComponent([p.name,p.area,"Rio de Janeiro"].filter(Boolean).join(", "));
+  const links=el("div",{class:"links"},
     el("a",{href:"https://www.google.com/maps/search/?api=1&query="+q,target:"_blank",rel:"noopener"},"Mapa"),
-    safeUrl(p.link) ? el("a",{href:p.link,target:"_blank",rel:"noopener"},"Link") : null);
-  const canDel = S.canWrite && S.me && (p.addedBy===S.me || S.canEdit);
-  if (canDel){
-    const armed = S.confirmDel===p.id;
+    safeUrl(p.link)?el("a",{href:p.link,target:"_blank",rel:"noopener"},"Link"):null);
+  if (p.added_by && p.added_by===S.me.id){
+    const armed=S.confirmDel===p.id;
     links.append(el("button",{class:"linkbtn danger",type:"button",onclick:()=>armed?removePlace(p.id):(S.confirmDel=p.id,render())},armed?"Confirmar remoção":"Remover"));
     if (armed) links.append(el("button",{class:"linkbtn",type:"button",onclick:()=>{S.confirmDel=null;render();}},"Cancelar"));
   }
-  const shown = vs.slice(0,5);
-  const who = el("div",{class:"who"});
+  const who=el("div",{class:"who"});
   if (vs.length){
-    who.append(el("span",{class:"avs"},shown.map(u=>el("span",{class:"av",style:"background:"+colorFor(u),title:nameOf(u)},initials(nameOf(u))))));
-    const names = vs.map(nameOf); names.sort((a,b)=>a==="Você"?-1:b==="Você"?1:0);
+    const sorted=[...vs].sort((a,b)=>a.id===S.me.id?-1:b.id===S.me.id?1:0);
+    who.append(el("span",{class:"avs"},sorted.slice(0,5).map(u=>el("span",{class:"av",style:"background:"+colorFor(u.id),title:shownName(u)},initials(u.name||"?")))));
+    const names=sorted.map(shownName);
     who.append(el("span",{},names.length<=2?names.join(" e "):names.slice(0,2).join(", ")+" +"+(names.length-2)));
   } else who.append("Ninguém ainda");
-  const added = p.addedBy && p.addedBy!=="lista" ? "sugerido por "+nameOf(p.addedBy) : null;
+  const added = p.added_by && p.added_by!=="lista" ? "sugerido por "+(p.added_by===S.me.id?"você":(p.added_by_name||"alguém")) : null;
   return el("article",{class:"card"+(on?" mine":"")},
     el("div",{class:"top"},
       el("div",{style:"display:grid;gap:4px;min-width:0"},
         el("h3",{},p.name),
         el("div",{class:"meta"},el("span",{class:"tag"},catLabel(p.category)),p.area?el("span",{},p.area):null,added?el("span",{},added):null)),
       vote),
-    p.note ? el("p",{class:"note"},p.note) : null,
+    p.note?el("p",{class:"note"},p.note):null,
     el("div",{class:"foot"},who,links));
 }
-function safeUrl(u){ try{ const x=new URL(u); return x.protocol==="https:"||x.protocol==="http:"; }catch{ return false; } }
-
 function render(){
   renderChips(); renderStats();
   const list=$("list"); list.textContent="";
-  if (!S.loaded) return;
+  if (!S.loaded){ list.append(el("p",{class:"empty"},"Carregando a lista…")); return; }
   const q=norm(S.q);
-  let items = S.places.filter(p =>
+  let items=S.places.filter(p=>
     (S.cat==="all" || (S.cat==="mine" ? mine(p.id) : p.category===S.cat)) &&
     (!q || norm(p.name+" "+(p.area||"")+" "+(p.note||"")+" "+catLabel(p.category)).includes(q)));
-  const cnt = {}; for (const p of items) cnt[p.id]=votersOf(p.id).length;
+  const cnt={}; for (const p of items) cnt[p.id]=votersOf(p.id).length;
   if (S.sort==="votos") items.sort((a,b)=>cnt[b.id]-cnt[a.id] || a.name.localeCompare(b.name,"pt"));
-  else if (S.sort==="novos") items.sort((a,b)=>(b.createdAt||0)-(a.createdAt||0));
+  else if (S.sort==="novos") items.sort((a,b)=>(b.created_at||"").localeCompare(a.created_at||""));
   else items.sort((a,b)=>a.name.localeCompare(b.name,"pt"));
   if (!items.length){ list.append(el("p",{class:"empty"}, S.cat==="mine"?"Você ainda não marcou nenhum lugar. Toque em Quero ir nos que curtir.":"Nada encontrado. Que tal adicionar esse lugar lá embaixo?")); return; }
   list.append(...items.map(card));
 }
 
-// ---- writes ----
-let voteChain = Promise.resolve();
-function toggleVote(pid){
-  if (!S.db || !S.me) return;
-  const set = new Set(S.votes[S.me] || []);
-  set.has(pid) ? set.delete(pid) : set.add(pid);
-  S.votes[S.me] = set; render();
-  const body = {places:Object.fromEntries([...set].map(id=>[id,true])), updatedAt:Date.now()};
-  voteChain = voteChain.then(()=>S.db.doc("votes/"+S.me).set(body)).catch(e=>writeFailed(e));
+// ---- ações ----
+async function toggleVote(pid){
+  if (needName() || S.busy.has(pid)) return;
+  const on=mine(pid);
+  S.busy.add(pid);
+  S.votes[pid]=on ? votersOf(pid).filter(u=>u.id!==S.me.id) : [...votersOf(pid),{id:S.me.id,name:S.me.name}];
+  render();
+  try{
+    if (on) await api("votes?place_id=eq."+encodeURIComponent(pid)+"&voter_id=eq."+encodeURIComponent(S.me.id),{method:"DELETE"});
+    else await api("votes?on_conflict=place_id,voter_id",{method:"POST",body:{place_id:pid,voter_id:S.me.id,voter_name:S.me.name},prefer:"resolution=ignore-duplicates,return=minimal"});
+  }catch(e){
+    S.votes[pid]=on ? [...votersOf(pid),{id:S.me.id,name:S.me.name}] : votersOf(pid).filter(u=>u.id!==S.me.id);
+    toast("Não deu pra salvar teu voto. Tenta de novo.");
+  }finally{ S.busy.delete(pid); render(); }
 }
 async function removePlace(pid){
   S.confirmDel=null;
-  try{ await S.db.doc("places/"+pid).delete(); toast("Lugar removido"); }
-  catch(e){ writeFailed(e); }
+  try{ await api("places?id=eq."+encodeURIComponent(pid)+"&added_by=eq."+encodeURIComponent(S.me.id),{method:"DELETE"}); toast("Lugar removido"); S.lastRaw=""; refresh(); }
+  catch{ toast("Não deu pra remover agora. Tenta de novo."); render(); }
 }
-function writeFailed(e){
-  if (e && (e.code==="invalid_argument"||e.code==="not_granted")){ S.canWrite=false; showReadOnly(); render(); }
-  else if (e && e.code==="quota_exceeded") toast("A lista encheu. Remova alguns lugares pra adicionar novos.");
-  else toast("Não deu pra salvar agora. Tenta de novo em alguns segundos.");
-}
-function showReadOnly(){
-  const n=$("notice"); n.hidden=false;
-  n.textContent="Você está só visualizando. Pra votar e adicionar lugares, peça pra quem mandou o link te dar acesso de edição.";
-  $("addForm").querySelectorAll("input,select,textarea,button").forEach(x=>x.disabled=true);
-}
-
 $("addForm").addEventListener("submit", async ev=>{
   ev.preventDefault();
   const msg=$("fMsg"); msg.className="formmsg";
+  if (needName()) return;
   const name=$("fName").value.trim();
   if (!name){ msg.className="formmsg err"; msg.textContent="Coloca o nome do lugar."; return; }
-  if (!S.db){ msg.className="formmsg err"; msg.textContent="Abra esta página pelo link do Claude pra salvar."; return; }
-  const dup = S.places.find(p=>norm(p.name)===norm(name));
+  const dup=S.places.find(p=>norm(p.name)===norm(name));
   if (dup){ msg.className="formmsg err"; msg.textContent="“"+dup.name+"” já está na lista. Vota nele!"; return; }
   const link=$("fLink").value.trim();
   if (link && !safeUrl(link)){ msg.className="formmsg err"; msg.textContent="O link precisa começar com https://"; return; }
   $("fSubmit").disabled=true;
   try{
-    const ref = S.db.collection("places").doc();
-    await ref.set({name, category:$("fCat").value, area:$("fArea").value.trim(), note:$("fNote").value.trim(), link, addedBy:S.me||"", createdAt:Date.now()});
+    const [row]=await api("places",{method:"POST",prefer:"return=representation",body:{
+      name, category:$("fCat").value, area:$("fArea").value.trim(), note:$("fNote").value.trim(), link,
+      added_by:S.me.id, added_by_name:S.me.name}});
     ev.target.reset(); msg.textContent="";
     toast("“"+name+"” entrou na lista");
-    if (S.me){ toggleVote(ref.id); }
+    S.places.push(row); await toggleVote(row.id);
     S.sort="novos"; $("sort").value="novos"; S.cat="all"; render();
     window.scrollTo({top:0,behavior:"smooth"});
-  }catch(e){ writeFailed(e); }
-  finally{ $("fSubmit").disabled=!S.canWrite; }
+  }catch(e){ msg.className="formmsg err"; msg.textContent="Não deu pra salvar. Tenta de novo em alguns segundos."; }
+  finally{ $("fSubmit").disabled=false; }
 });
 
 $("q").addEventListener("input", e=>{S.q=e.target.value; render();});
@@ -312,43 +394,17 @@ $("sort").addEventListener("change", e=>{S.sort=e.target.value; render();});
 $("goAdd").addEventListener("click", ()=>{ $("add").scrollIntoView({behavior:"smooth"}); setTimeout(()=>$("fName").focus({preventScroll:true}),350); });
 for (const c of CATS) $("fCat").append(el("option",{value:c.id},c.label));
 
-// ---- names ----
-let profT;
-function refreshProfiles(){
-  clearTimeout(profT);
-  profT=setTimeout(async ()=>{
-    if (!S.user) return;
-    const ids=new Set(Object.keys(S.votes)); for (const p of S.places) if (p.addedBy && p.addedBy!=="lista") ids.add(p.addedBy);
-    ids.delete(S.me);
-    const need=[...ids].filter(i=>!S.profiles[i]); if(!need.length) return;
-    try{ Object.assign(S.profiles, await S.user.profiles(need)); render(); }catch{}
-  },200);
+// ---- início ----
+renderMe(); render();
+if (!CFG.supabaseUrl || !CFG.supabaseKey || CFG.supabaseUrl.includes("COLE_AQUI")){
+  S.loaded=true; const n=$("notice"); n.hidden=false;
+  n.textContent="Falta configurar o banco: preencha config.js com a URL e a chave do Supabase.";
+  render();
+} else {
+  refresh();
+  setInterval(()=>{ if (document.visibilityState==="visible") refresh(); }, 6000);
+  document.addEventListener("visibilitychange", ()=>{ if (document.visibilityState==="visible") refresh(); });
 }
-
-// ---- boot ----
-render();
-(async ()=>{
-  const [db,user] = await Promise.all([claude.use("db"), claude.use("user")]);
-  S.db=db; S.user=user;
-  if (!db){
-    S.loaded=true; const n=$("notice"); n.hidden=false;
-    n.textContent="Não consegui carregar a lista. Abra esta página pelo link do Claude e entre com a sua conta.";
-    render(); return;
-  }
-  if (user){
-    try{ S.me = await user.id(); }catch{}
-    try{ S.canEdit = await user.canEdit(); }catch{}
-    try{ const w = await user.can("data.write"); if (w===false){ S.canWrite=false; showReadOnly(); } }catch{}
-  }
-  if (!S.me){ S.canWrite=false; showReadOnly(); }
-  db.collection("places").onSnapshot(snap=>{
-    S.places = snap.docs.map(d=>({id:d.id, ...d.data()})).filter(p=>p.name);
-    S.loaded=true; render(); refreshProfiles();
-  }, ()=>{ S.loaded=true; render(); });
-  db.collection("votes").onSnapshot(snap=>{
-    const v={};
-    for (const d of snap.docs){ const b=d.data()||{}; v[d.id]=new Set(Object.keys(b.places||{}).filter(k=>b.places[k])); }
-    S.votes=v; render(); refreshProfiles();
-  });
-})();
 </script>
+</body>
+</html>
