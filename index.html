@@ -1,0 +1,354 @@
+<title>Bora pro Rio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --paper:#F3F7F6; --surface:#FFFFFF; --ink:#13242B; --muted:#5A6E75; --line:#D5E1E0;
+  --mar:#0E5A73; --mar-soft:#DCEBEF; --sol:#F2B705; --sol-ink:#3A2B00; --mata:#2F7D4F;
+  --danger:#B3261E; --wave:#13242B;
+  --display:"Unbounded", "Arial Black", system-ui, sans-serif;
+  --body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --paper:#0D1A1F; --surface:#142A31; --ink:#E7F0EF; --muted:#9AB0B5; --line:#24404A;
+    --mar:#6CC3DD; --mar-soft:#16384377; --sol:#F5C63A; --sol-ink:#2A1F00; --mata:#6FC392;
+    --danger:#FF8A80; --wave:#E7F0EF;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --paper:#0D1A1F; --surface:#142A31; --ink:#E7F0EF; --muted:#9AB0B5; --line:#24404A;
+  --mar:#6CC3DD; --mar-soft:#16384377; --sol:#F5C63A; --sol-ink:#2A1F00; --mata:#6FC392;
+  --danger:#FF8A80; --wave:#E7F0EF;
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5}
+.wrap{max-width:1040px;margin:0 auto;padding-inline:16px}
+.calcadao{height:34px;background:var(--wave);
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='34' viewBox='0 0 96 34'%3E%3Cpath d='M0 10 C12 0 36 0 48 10 S84 20 96 10 L96 22 C84 32 60 32 48 22 S12 12 0 22Z'/%3E%3C/svg%3E") repeat-x left center/96px 34px;
+          mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='34' viewBox='0 0 96 34'%3E%3Cpath d='M0 10 C12 0 36 0 48 10 S84 20 96 10 L96 22 C84 32 60 32 48 22 S12 12 0 22Z'/%3E%3C/svg%3E") repeat-x left center/96px 34px}
+header.hero{padding-block:28px 20px;display:grid;gap:14px}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--mar)}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(34px,7vw,64px);line-height:1;margin:0;letter-spacing:-.02em;text-wrap:balance}
+h1 .sol{background:var(--sol);color:var(--sol-ink);padding:0 .15em;border-radius:6px}
+.lede{margin:0;max-width:60ch;color:var(--muted);font-size:17px}
+.stats{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:14px;color:var(--muted)}
+.stats b{font-family:var(--display);font-weight:700;color:var(--ink);font-size:18px;font-variant-numeric:tabular-nums;margin-right:4px}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);padding-block:12px;border-bottom:1px solid var(--line);display:grid;gap:10px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.search{flex:1 1 220px;min-width:0}
+input,select,textarea{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:9px 12px;width:100%}
+textarea{resize:vertical;min-height:64px}
+input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid var(--sol);outline-offset:2px}
+button{font:inherit;cursor:pointer}
+.btn{border:0;border-radius:999px;padding:9px 16px;font-weight:700;background:var(--mar);color:var(--paper)}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.chips{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px;scrollbar-width:thin}
+.chip{flex:none;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:5px 12px;font-size:14px;font-weight:600;white-space:nowrap}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.chip .n{opacity:.6;font-variant-numeric:tabular-nums;margin-left:4px}
+.sortsel{width:auto}
+main{padding-block:18px 60px;display:grid;gap:26px}
+.notice{border:1px dashed var(--line);border-radius:12px;padding:14px 16px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:12px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px;display:grid;gap:8px;align-content:start}
+.card.mine{border-color:var(--mar);box-shadow:inset 0 0 0 1px var(--mar)}
+.top{display:flex;gap:10px;justify-content:space-between;align-items:flex-start}
+.card h3{margin:0;font-size:18px;line-height:1.25;font-weight:700;text-wrap:balance}
+.meta{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 10px}
+.tag{font-weight:700;color:var(--mar)}
+.note{margin:0;font-size:15px}
+.vote{flex:none;display:grid;justify-items:center;min-width:58px;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:12px;padding:6px 8px;line-height:1.1}
+.vote .c{font-family:var(--display);font-weight:700;font-size:20px;font-variant-numeric:tabular-nums}
+.vote .l{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.vote[aria-pressed="true"]{background:var(--sol);border-color:var(--sol);color:var(--sol-ink)}
+.vote[aria-pressed="true"] .l{color:var(--sol-ink)}
+.vote:disabled{cursor:default;opacity:.7}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;font-size:13px}
+.who{display:flex;align-items:center;gap:6px;color:var(--muted);min-width:0}
+.avs{display:flex}
+.av{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:700;color:#fff;border:2px solid var(--surface);margin-left:-6px}
+.av:first-child{margin-left:0}
+.links{display:flex;gap:12px}
+.links a,.linkbtn{color:var(--mar);font-weight:600;text-decoration:none;background:none;border:0;padding:0;font-size:13px}
+.links a:hover,.linkbtn:hover{text-decoration:underline}
+.linkbtn.danger{color:var(--danger)}
+section h2{font-family:var(--display);font-weight:700;font-size:22px;margin:0 0 4px}
+section .sub{margin:0 0 14px;color:var(--muted)}
+form.add{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px;display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
+form.add .full{grid-column:1/-1}
+label{display:grid;gap:4px;font-size:14px;font-weight:600}
+label small{font-weight:400;color:var(--muted)}
+.formmsg{font-size:14px;color:var(--muted);align-self:center}
+.formmsg.err{color:var(--danger)}
+.empty{color:var(--muted);padding:20px 0}
+.toast{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:10px 16px;border-radius:999px;font-weight:600;font-size:14px;z-index:20;max-width:calc(100% - 32px)}
+@media (max-width:560px){form.add{grid-template-columns:1fr}.grid{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:no-preference){.card{transition:border-color .15s}.vote{transition:background .15s,transform .1s}.vote:active{transform:scale(.96)}}
+</style>
+
+<div class="calcadao" aria-hidden="true"></div>
+<div class="wrap">
+  <header class="hero">
+    <div class="eyebrow">Rio de Janeiro · sem roteiro fixo</div>
+    <h1>Bora pro <span class="sol">Rio</span></h1>
+    <p class="lede">Lista de lugares pra galera escolher. Marca <b>Quero ir</b> nos que te interessam, e se faltar algum, adiciona lá embaixo. O mais votado sobe pro topo.</p>
+    <div class="stats" id="stats"><span><b>…</b>lugares</span></div>
+  </header>
+</div>
+
+<div class="bar">
+  <div class="wrap" style="display:grid;gap:10px">
+    <div class="row">
+      <input class="search" id="q" type="search" placeholder="Buscar lugar ou bairro…" aria-label="Buscar lugar ou bairro">
+      <select id="sort" class="sortsel" aria-label="Ordenar">
+        <option value="votos">Mais votados</option>
+        <option value="novos">Adicionados agora</option>
+        <option value="nome">A–Z</option>
+      </select>
+      <button class="btn" id="goAdd" type="button">+ Adicionar lugar</button>
+    </div>
+    <div class="chips" id="chips" role="toolbar" aria-label="Filtrar por tipo"></div>
+  </div>
+</div>
+
+<div class="wrap">
+  <main>
+    <div class="notice" id="notice" hidden></div>
+    <div class="grid" id="list" aria-live="polite"></div>
+
+    <section id="add">
+      <h2>Faltou algum lugar?</h2>
+      <p class="sub">Adiciona aqui. Todo mundo que tem o link vê na hora.</p>
+      <form class="add" id="addForm" autocomplete="off">
+        <label class="full">Nome do lugar
+          <input id="fName" required maxlength="80" placeholder="Ex.: Bar do Mineiro">
+        </label>
+        <label>Tipo
+          <select id="fCat"></select>
+        </label>
+        <label>Bairro ou região
+          <input id="fArea" maxlength="60" placeholder="Ex.: Santa Teresa">
+        </label>
+        <label class="full">Por que ir? <small>(opcional)</small>
+          <textarea id="fNote" maxlength="280" placeholder="Ex.: pastel de feijão e samba no sábado"></textarea>
+        </label>
+        <label class="full">Link <small>(opcional: Instagram, Maps, site)</small>
+          <input id="fLink" type="url" maxlength="300" placeholder="https://">
+        </label>
+        <div class="row full">
+          <button class="btn" type="submit" id="fSubmit">Adicionar à lista</button>
+          <span class="formmsg" id="fMsg"></span>
+        </div>
+      </form>
+    </section>
+  </main>
+</div>
+<div class="calcadao" aria-hidden="true"></div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+const CATS = [
+  {id:"praia", label:"Praias"},
+  {id:"mirante", label:"Mirantes e trilhas"},
+  {id:"postal", label:"Cartões-postais"},
+  {id:"cultura", label:"Museus e cultura"},
+  {id:"boteco", label:"Bares e botecos"},
+  {id:"comida", label:"Onde comer"},
+  {id:"noite", label:"Noite e samba"},
+  {id:"passeio", label:"Passeios e bate-volta"},
+];
+const catLabel = id => (CATS.find(c => c.id === id) || {label:"Outros"}).label;
+const AV_COLORS = ["#0E5A73","#2F7D4F","#B45309","#7C3AED","#BE185D","#0F766E","#9A3412","#1D4ED8"];
+
+const S = {db:null, user:null, me:null, canWrite:true, canEdit:false,
+  places:[], votes:{}, profiles:{}, cat:"all", q:"", sort:"votos", loaded:false, confirmDel:null};
+
+const $ = id => document.getElementById(id);
+const norm = s => (s||"").toString().normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase().trim();
+function el(tag, attrs={}, ...kids){
+  const e = document.createElement(tag);
+  for (const [k,v] of Object.entries(attrs)){
+    if (v == null || v === false) continue;
+    if (k === "class") e.className = v;
+    else if (k.startsWith("on")) e.addEventListener(k.slice(2), v);
+    else e.setAttribute(k, v === true ? "" : v);
+  }
+  for (const k of kids.flat()) if (k != null && k !== false) e.append(k.nodeType ? k : document.createTextNode(k));
+  return e;
+}
+let toastT;
+function toast(msg){ const t=$("toast"); t.textContent=msg; t.hidden=false; clearTimeout(toastT); toastT=setTimeout(()=>t.hidden=true,2600); }
+
+function votersOf(pid){ return Object.keys(S.votes).filter(u => S.votes[u].has(pid)); }
+function mine(pid){ return !!(S.me && S.votes[S.me] && S.votes[S.me].has(pid)); }
+function initials(name){ const p=(name||"?").trim().split(/\s+/); return ((p[0]||"?")[0]+(p.length>1?p[p.length-1][0]:"")).toUpperCase(); }
+function colorFor(id){ let h=0; for (const c of id) h=(h*31+c.charCodeAt(0))>>>0; return AV_COLORS[h%AV_COLORS.length]; }
+function nameOf(id){ if (id === S.me) return "Você"; const p=S.profiles[id]; return (p && p.name) || "Alguém"; }
+
+function renderChips(){
+  const box=$("chips"); box.textContent="";
+  const count = id => id==="all" ? S.places.length : S.places.filter(p=>p.category===id).length;
+  const mk = (id,label) => el("button",{class:"chip",type:"button","aria-pressed":String(S.cat===id),onclick:()=>{S.cat=id;render();}},label,el("span",{class:"n"},String(count(id))));
+  box.append(mk("all","Tudo"));
+  if (S.me) box.append(el("button",{class:"chip",type:"button","aria-pressed":String(S.cat==="mine"),onclick:()=>{S.cat="mine";render();}},"Meus votos",el("span",{class:"n"},String(S.votes[S.me]?S.votes[S.me].size:0))));
+  for (const c of CATS) box.append(mk(c.id,c.label));
+}
+
+function renderStats(){
+  const people = Object.keys(S.votes).filter(u=>S.votes[u].size>0).length;
+  const votes = Object.values(S.votes).reduce((a,s)=>a+s.size,0);
+  const st=$("stats"); st.textContent="";
+  st.append(el("span",{},el("b",{},String(S.places.length)),"lugares"),
+            el("span",{},el("b",{},String(votes)),"votos"),
+            el("span",{},el("b",{},String(people)),people===1?"pessoa votou":"pessoas votaram"));
+}
+
+function card(p){
+  const vs = votersOf(p.id), on = mine(p.id);
+  const vote = el("button",{class:"vote",type:"button","aria-pressed":String(on),disabled:!S.canWrite||!S.me,
+      title:on?"Tirar meu voto":"Quero ir","aria-label":(on?"Tirar voto de ":"Quero ir: ")+p.name,
+      onclick:()=>toggleVote(p.id)},
+    el("span",{class:"c"},String(vs.length)), el("span",{class:"l"},on?"Vou!":"Quero ir"));
+  const q = encodeURIComponent([p.name,p.area,"Rio de Janeiro"].filter(Boolean).join(", "));
+  const links = el("div",{class:"links"},
+    el("a",{href:"https://www.google.com/maps/search/?api=1&query="+q,target:"_blank",rel:"noopener"},"Mapa"),
+    safeUrl(p.link) ? el("a",{href:p.link,target:"_blank",rel:"noopener"},"Link") : null);
+  const canDel = S.canWrite && S.me && (p.addedBy===S.me || S.canEdit);
+  if (canDel){
+    const armed = S.confirmDel===p.id;
+    links.append(el("button",{class:"linkbtn danger",type:"button",onclick:()=>armed?removePlace(p.id):(S.confirmDel=p.id,render())},armed?"Confirmar remoção":"Remover"));
+    if (armed) links.append(el("button",{class:"linkbtn",type:"button",onclick:()=>{S.confirmDel=null;render();}},"Cancelar"));
+  }
+  const shown = vs.slice(0,5);
+  const who = el("div",{class:"who"});
+  if (vs.length){
+    who.append(el("span",{class:"avs"},shown.map(u=>el("span",{class:"av",style:"background:"+colorFor(u),title:nameOf(u)},initials(nameOf(u))))));
+    const names = vs.map(nameOf); names.sort((a,b)=>a==="Você"?-1:b==="Você"?1:0);
+    who.append(el("span",{},names.length<=2?names.join(" e "):names.slice(0,2).join(", ")+" +"+(names.length-2)));
+  } else who.append("Ninguém ainda");
+  const added = p.addedBy && p.addedBy!=="lista" ? "sugerido por "+nameOf(p.addedBy) : null;
+  return el("article",{class:"card"+(on?" mine":"")},
+    el("div",{class:"top"},
+      el("div",{style:"display:grid;gap:4px;min-width:0"},
+        el("h3",{},p.name),
+        el("div",{class:"meta"},el("span",{class:"tag"},catLabel(p.category)),p.area?el("span",{},p.area):null,added?el("span",{},added):null)),
+      vote),
+    p.note ? el("p",{class:"note"},p.note) : null,
+    el("div",{class:"foot"},who,links));
+}
+function safeUrl(u){ try{ const x=new URL(u); return x.protocol==="https:"||x.protocol==="http:"; }catch{ return false; } }
+
+function render(){
+  renderChips(); renderStats();
+  const list=$("list"); list.textContent="";
+  if (!S.loaded) return;
+  const q=norm(S.q);
+  let items = S.places.filter(p =>
+    (S.cat==="all" || (S.cat==="mine" ? mine(p.id) : p.category===S.cat)) &&
+    (!q || norm(p.name+" "+(p.area||"")+" "+(p.note||"")+" "+catLabel(p.category)).includes(q)));
+  const cnt = {}; for (const p of items) cnt[p.id]=votersOf(p.id).length;
+  if (S.sort==="votos") items.sort((a,b)=>cnt[b.id]-cnt[a.id] || a.name.localeCompare(b.name,"pt"));
+  else if (S.sort==="novos") items.sort((a,b)=>(b.createdAt||0)-(a.createdAt||0));
+  else items.sort((a,b)=>a.name.localeCompare(b.name,"pt"));
+  if (!items.length){ list.append(el("p",{class:"empty"}, S.cat==="mine"?"Você ainda não marcou nenhum lugar. Toque em Quero ir nos que curtir.":"Nada encontrado. Que tal adicionar esse lugar lá embaixo?")); return; }
+  list.append(...items.map(card));
+}
+
+// ---- writes ----
+let voteChain = Promise.resolve();
+function toggleVote(pid){
+  if (!S.db || !S.me) return;
+  const set = new Set(S.votes[S.me] || []);
+  set.has(pid) ? set.delete(pid) : set.add(pid);
+  S.votes[S.me] = set; render();
+  const body = {places:Object.fromEntries([...set].map(id=>[id,true])), updatedAt:Date.now()};
+  voteChain = voteChain.then(()=>S.db.doc("votes/"+S.me).set(body)).catch(e=>writeFailed(e));
+}
+async function removePlace(pid){
+  S.confirmDel=null;
+  try{ await S.db.doc("places/"+pid).delete(); toast("Lugar removido"); }
+  catch(e){ writeFailed(e); }
+}
+function writeFailed(e){
+  if (e && (e.code==="invalid_argument"||e.code==="not_granted")){ S.canWrite=false; showReadOnly(); render(); }
+  else if (e && e.code==="quota_exceeded") toast("A lista encheu. Remova alguns lugares pra adicionar novos.");
+  else toast("Não deu pra salvar agora. Tenta de novo em alguns segundos.");
+}
+function showReadOnly(){
+  const n=$("notice"); n.hidden=false;
+  n.textContent="Você está só visualizando. Pra votar e adicionar lugares, peça pra quem mandou o link te dar acesso de edição.";
+  $("addForm").querySelectorAll("input,select,textarea,button").forEach(x=>x.disabled=true);
+}
+
+$("addForm").addEventListener("submit", async ev=>{
+  ev.preventDefault();
+  const msg=$("fMsg"); msg.className="formmsg";
+  const name=$("fName").value.trim();
+  if (!name){ msg.className="formmsg err"; msg.textContent="Coloca o nome do lugar."; return; }
+  if (!S.db){ msg.className="formmsg err"; msg.textContent="Abra esta página pelo link do Claude pra salvar."; return; }
+  const dup = S.places.find(p=>norm(p.name)===norm(name));
+  if (dup){ msg.className="formmsg err"; msg.textContent="“"+dup.name+"” já está na lista. Vota nele!"; return; }
+  const link=$("fLink").value.trim();
+  if (link && !safeUrl(link)){ msg.className="formmsg err"; msg.textContent="O link precisa começar com https://"; return; }
+  $("fSubmit").disabled=true;
+  try{
+    const ref = S.db.collection("places").doc();
+    await ref.set({name, category:$("fCat").value, area:$("fArea").value.trim(), note:$("fNote").value.trim(), link, addedBy:S.me||"", createdAt:Date.now()});
+    ev.target.reset(); msg.textContent="";
+    toast("“"+name+"” entrou na lista");
+    if (S.me){ toggleVote(ref.id); }
+    S.sort="novos"; $("sort").value="novos"; S.cat="all"; render();
+    window.scrollTo({top:0,behavior:"smooth"});
+  }catch(e){ writeFailed(e); }
+  finally{ $("fSubmit").disabled=!S.canWrite; }
+});
+
+$("q").addEventListener("input", e=>{S.q=e.target.value; render();});
+$("sort").addEventListener("change", e=>{S.sort=e.target.value; render();});
+$("goAdd").addEventListener("click", ()=>{ $("add").scrollIntoView({behavior:"smooth"}); setTimeout(()=>$("fName").focus({preventScroll:true}),350); });
+for (const c of CATS) $("fCat").append(el("option",{value:c.id},c.label));
+
+// ---- names ----
+let profT;
+function refreshProfiles(){
+  clearTimeout(profT);
+  profT=setTimeout(async ()=>{
+    if (!S.user) return;
+    const ids=new Set(Object.keys(S.votes)); for (const p of S.places) if (p.addedBy && p.addedBy!=="lista") ids.add(p.addedBy);
+    ids.delete(S.me);
+    const need=[...ids].filter(i=>!S.profiles[i]); if(!need.length) return;
+    try{ Object.assign(S.profiles, await S.user.profiles(need)); render(); }catch{}
+  },200);
+}
+
+// ---- boot ----
+render();
+(async ()=>{
+  const [db,user] = await Promise.all([claude.use("db"), claude.use("user")]);
+  S.db=db; S.user=user;
+  if (!db){
+    S.loaded=true; const n=$("notice"); n.hidden=false;
+    n.textContent="Não consegui carregar a lista. Abra esta página pelo link do Claude e entre com a sua conta.";
+    render(); return;
+  }
+  if (user){
+    try{ S.me = await user.id(); }catch{}
+    try{ S.canEdit = await user.canEdit(); }catch{}
+    try{ const w = await user.can("data.write"); if (w===false){ S.canWrite=false; showReadOnly(); } }catch{}
+  }
+  if (!S.me){ S.canWrite=false; showReadOnly(); }
+  db.collection("places").onSnapshot(snap=>{
+    S.places = snap.docs.map(d=>({id:d.id, ...d.data()})).filter(p=>p.name);
+    S.loaded=true; render(); refreshProfiles();
+  }, ()=>{ S.loaded=true; render(); });
+  db.collection("votes").onSnapshot(snap=>{
+    const v={};
+    for (const d of snap.docs){ const b=d.data()||{}; v[d.id]=new Set(Object.keys(b.places||{}).filter(k=>b.places[k])); }
+    S.votes=v; render(); refreshProfiles();
+  });
+})();
+</script>

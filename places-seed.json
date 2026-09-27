@@ -1,0 +1,972 @@
+[
+ {
+  "name": "Praia de Copacabana",
+  "category": "praia",
+  "area": "Copacabana",
+  "note": "Calçadão de ondas, quiosques e mate com biscoito Globo.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000000,
+  "id": "s-praia-de-copacabana"
+ },
+ {
+  "name": "Praia de Ipanema (Posto 9)",
+  "category": "praia",
+  "area": "Ipanema",
+  "note": "A praia mais carioca. Fica pro pôr do sol e aplaude.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000001,
+  "id": "s-praia-de-ipanema-posto-9"
+ },
+ {
+  "name": "Arpoador",
+  "category": "praia",
+  "area": "Ipanema",
+  "note": "Pedra com o pôr do sol mais famoso do Rio.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000002,
+  "id": "s-arpoador"
+ },
+ {
+  "name": "Praia do Leblon",
+  "category": "praia",
+  "area": "Leblon",
+  "note": "Mais tranquila que Ipanema, boa pra família e altinha.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000003,
+  "id": "s-praia-do-leblon"
+ },
+ {
+  "name": "Praia da Barra da Tijuca",
+  "category": "praia",
+  "area": "Barra da Tijuca",
+  "note": "Faixa enorme de areia, bom pra quem quer espaço.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000004,
+  "id": "s-praia-da-barra-da-tijuca"
+ },
+ {
+  "name": "Prainha",
+  "category": "praia",
+  "area": "Recreio",
+  "note": "Praia de surfe cercada de mata, água mais limpa.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000005,
+  "id": "s-prainha"
+ },
+ {
+  "name": "Praia de Grumari",
+  "category": "praia",
+  "area": "Grumari",
+  "note": "Selvagem, sem prédios. Leva comida, tem pouca estrutura.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000006,
+  "id": "s-praia-de-grumari"
+ },
+ {
+  "name": "Praia Vermelha",
+  "category": "praia",
+  "area": "Urca",
+  "note": "Pequena, ao pé do Pão de Açúcar, água calma.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000007,
+  "id": "s-praia-vermelha"
+ },
+ {
+  "name": "Praia do Recreio",
+  "category": "praia",
+  "area": "Recreio",
+  "note": "Tranquila, com a Pedra do Pontal no canto.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000008,
+  "id": "s-praia-do-recreio"
+ },
+ {
+  "name": "Praia da Joatinga",
+  "category": "praia",
+  "area": "Joá",
+  "note": "Escondida entre pedras, acesso por trilha curta. Vai na maré baixa.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000009,
+  "id": "s-praia-da-joatinga"
+ },
+ {
+  "name": "Praia do Leme",
+  "category": "praia",
+  "area": "Leme",
+  "note": "Ponta de Copa, mais calma. Termina no Caminho dos Pescadores.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000010,
+  "id": "s-praia-do-leme"
+ },
+ {
+  "name": "Praia de São Conrado",
+  "category": "praia",
+  "area": "São Conrado",
+  "note": "Onde pousam as asas-deltas da Pedra Bonita.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000011,
+  "id": "s-praia-de-sao-conrado"
+ },
+ {
+  "name": "Praia de Itacoatiara",
+  "category": "praia",
+  "area": "Niterói",
+  "note": "Mar forte, paisagem linda, costão do Alto Mourão.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000012,
+  "id": "s-praia-de-itacoatiara"
+ },
+ {
+  "name": "Praia do Abricó",
+  "category": "praia",
+  "area": "Grumari",
+  "note": "Praia de naturismo oficial do Rio.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000013,
+  "id": "s-praia-do-abrico"
+ },
+ {
+  "name": "Praia da Macumba",
+  "category": "praia",
+  "area": "Recreio",
+  "note": "Point de surfe e altinha.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000014,
+  "id": "s-praia-da-macumba"
+ },
+ {
+  "name": "Pão de Açúcar (bondinho)",
+  "category": "mirante",
+  "area": "Urca",
+  "note": "Bondinho em duas etapas, vista da baía e de Copacabana.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000015,
+  "id": "s-pao-de-acucar-bondinho"
+ },
+ {
+  "name": "Trilha do Morro da Urca",
+  "category": "mirante",
+  "area": "Urca",
+  "note": "Sobe a pé até a primeira estação do bondinho, uns 40 min.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000016,
+  "id": "s-trilha-do-morro-da-urca"
+ },
+ {
+  "name": "Pista Cláudio Coutinho",
+  "category": "mirante",
+  "area": "Urca",
+  "note": "Caminhada plana na beira do mar, com micos e vista.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000017,
+  "id": "s-pista-claudio-coutinho"
+ },
+ {
+  "name": "Trilha do Morro Dois Irmãos",
+  "category": "mirante",
+  "area": "Vidigal",
+  "note": "Sobe pelo Vidigal, uma hora de trilha, vista de toda a Zona Sul.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000018,
+  "id": "s-trilha-do-morro-dois-irmaos"
+ },
+ {
+  "name": "Pedra da Gávea",
+  "category": "mirante",
+  "area": "São Conrado",
+  "note": "Trilha pesada com escalaminhada. Pra quem tá em forma.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000019,
+  "id": "s-pedra-da-gavea"
+ },
+ {
+  "name": "Pedra Bonita",
+  "category": "mirante",
+  "area": "São Conrado",
+  "note": "Trilha curta, vista da rampa de voo livre.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000020,
+  "id": "s-pedra-bonita"
+ },
+ {
+  "name": "Voo de asa-delta ou parapente",
+  "category": "mirante",
+  "area": "São Conrado",
+  "note": "Sai da Pedra Bonita e pousa na praia de São Conrado.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000021,
+  "id": "s-voo-de-asa-delta-ou-parapente"
+ },
+ {
+  "name": "Vista Chinesa",
+  "category": "mirante",
+  "area": "Alto da Boa Vista",
+  "note": "Mirante de pagode chinês dentro da Floresta da Tijuca.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000022,
+  "id": "s-vista-chinesa"
+ },
+ {
+  "name": "Mirante Dona Marta",
+  "category": "mirante",
+  "area": "Botafogo",
+  "note": "Vista do Cristo, Pão de Açúcar e Botafogo, de graça.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000023,
+  "id": "s-mirante-dona-marta"
+ },
+ {
+  "name": "Parque Nacional da Tijuca",
+  "category": "mirante",
+  "area": "Alto da Boa Vista",
+  "note": "Maior floresta urbana: cachoeiras, trilhas e o Pico da Tijuca.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000024,
+  "id": "s-parque-nacional-da-tijuca"
+ },
+ {
+  "name": "Pico da Tijuca",
+  "category": "mirante",
+  "area": "Alto da Boa Vista",
+  "note": "Ponto mais alto do parque, escadaria esculpida na pedra no final.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000025,
+  "id": "s-pico-da-tijuca"
+ },
+ {
+  "name": "Mirante do Leblon",
+  "category": "mirante",
+  "area": "Leblon",
+  "note": "No fim da praia, bom pra ver o pôr do sol com um chope.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000026,
+  "id": "s-mirante-do-leblon"
+ },
+ {
+  "name": "Parque Lage",
+  "category": "mirante",
+  "area": "Jardim Botânico",
+  "note": "Casarão com café, ponto de partida da trilha pro Cristo.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000027,
+  "id": "s-parque-lage"
+ },
+ {
+  "name": "Trilha do Telégrafo",
+  "category": "mirante",
+  "area": "Barra de Guaratiba",
+  "note": "Trilha curta até a pedra da foto famosa, na beira do abismo.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000028,
+  "id": "s-trilha-do-telegrafo"
+ },
+ {
+  "name": "Parque da Cidade de Niterói",
+  "category": "mirante",
+  "area": "Niterói",
+  "note": "Mirante com vista do Rio inteiro do outro lado da baía.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000029,
+  "id": "s-parque-da-cidade-de-niteroi"
+ },
+ {
+  "name": "Cristo Redentor",
+  "category": "postal",
+  "area": "Corcovado",
+  "note": "Sobe de trem do Cosme Velho ou de van. Vai cedo pra fugir da fila.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000030,
+  "id": "s-cristo-redentor"
+ },
+ {
+  "name": "Escadaria Selarón",
+  "category": "postal",
+  "area": "Lapa",
+  "note": "Degraus cobertos de azulejos do mundo todo.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000031,
+  "id": "s-escadaria-selaron"
+ },
+ {
+  "name": "Arcos da Lapa",
+  "category": "postal",
+  "area": "Lapa",
+  "note": "Aqueduto antigo, cartão-postal da Lapa.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000032,
+  "id": "s-arcos-da-lapa"
+ },
+ {
+  "name": "Bondinho de Santa Teresa",
+  "category": "postal",
+  "area": "Santa Teresa",
+  "note": "Bonde amarelo que sai do Centro e sobe pelo bairro.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000033,
+  "id": "s-bondinho-de-santa-teresa"
+ },
+ {
+  "name": "Maracanã",
+  "category": "postal",
+  "area": "Maracanã",
+  "note": "Pega um jogo ou faz o tour pelo estádio.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000034,
+  "id": "s-maracana"
+ },
+ {
+  "name": "Jardim Botânico",
+  "category": "postal",
+  "area": "Jardim Botânico",
+  "note": "Aleia das palmeiras imperiais, orquidário e muito verde.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000035,
+  "id": "s-jardim-botanico"
+ },
+ {
+  "name": "Lagoa Rodrigo de Freitas",
+  "category": "postal",
+  "area": "Lagoa",
+  "note": "Volta de bike ou pedalinho, quiosques à noite.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000036,
+  "id": "s-lagoa-rodrigo-de-freitas"
+ },
+ {
+  "name": "Boulevard Olímpico e Praça Mauá",
+  "category": "postal",
+  "area": "Centro",
+  "note": "Orla revitalizada, mural Etnias do Kobra.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000037,
+  "id": "s-boulevard-olimpico-e-praca-maua"
+ },
+ {
+  "name": "Confeitaria Colombo",
+  "category": "postal",
+  "area": "Centro",
+  "note": "Salão de 1894 com espelhos belgas. Pede um doce e um café.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000038,
+  "id": "s-confeitaria-colombo"
+ },
+ {
+  "name": "Real Gabinete Português de Leitura",
+  "category": "postal",
+  "area": "Centro",
+  "note": "Biblioteca que parece cenário de filme. Entrada gratuita.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000039,
+  "id": "s-real-gabinete-portugues-de-leitura"
+ },
+ {
+  "name": "Theatro Municipal",
+  "category": "postal",
+  "area": "Centro",
+  "note": "Tem visita guiada e espetáculos baratos.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000040,
+  "id": "s-theatro-municipal"
+ },
+ {
+  "name": "Ilha Fiscal",
+  "category": "postal",
+  "area": "Centro",
+  "note": "Castelo verde na baía, passeio da Marinha.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000041,
+  "id": "s-ilha-fiscal"
+ },
+ {
+  "name": "Museu de Arte Contemporânea (MAC)",
+  "category": "postal",
+  "area": "Niterói",
+  "note": "O disco voador do Niemeyer com vista pro Rio.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000042,
+  "id": "s-museu-de-arte-contemporanea-mac"
+ },
+ {
+  "name": "Feira de São Cristóvão",
+  "category": "postal",
+  "area": "São Cristóvão",
+  "note": "Centro nordestino com forró, comida e cachaça.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000043,
+  "id": "s-feira-de-sao-cristovao"
+ },
+ {
+  "name": "Museu do Amanhã",
+  "category": "cultura",
+  "area": "Centro",
+  "note": "Museu de ciência do Calatrava na Praça Mauá.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000044,
+  "id": "s-museu-do-amanha"
+ },
+ {
+  "name": "Museu de Arte do Rio (MAR)",
+  "category": "cultura",
+  "area": "Centro",
+  "note": "Arte e história do Rio, terraço com vista da baía.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000045,
+  "id": "s-museu-de-arte-do-rio-mar"
+ },
+ {
+  "name": "AquaRio",
+  "category": "cultura",
+  "area": "Gamboa",
+  "note": "Maior aquário marinho da América do Sul.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000046,
+  "id": "s-aquario"
+ },
+ {
+  "name": "Centro Cultural Banco do Brasil (CCBB)",
+  "category": "cultura",
+  "area": "Centro",
+  "note": "Exposições boas e quase sempre de graça.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000047,
+  "id": "s-centro-cultural-banco-do-brasil-ccbb"
+ },
+ {
+  "name": "Instituto Moreira Salles",
+  "category": "cultura",
+  "area": "Gávea",
+  "note": "Casa modernista com jardim do Burle Marx e café.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000048,
+  "id": "s-instituto-moreira-salles"
+ },
+ {
+  "name": "Museu de Arte Moderna (MAM)",
+  "category": "cultura",
+  "area": "Aterro do Flamengo",
+  "note": "Prédio icônico, jardins do Burle Marx no Aterro.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000049,
+  "id": "s-museu-de-arte-moderna-mam"
+ },
+ {
+  "name": "Museu Nacional de Belas Artes",
+  "category": "cultura",
+  "area": "Centro",
+  "note": "Grande acervo de arte brasileira.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000050,
+  "id": "s-museu-nacional-de-belas-artes"
+ },
+ {
+  "name": "Pequena África e Cais do Valongo",
+  "category": "cultura",
+  "area": "Saúde",
+  "note": "Tour pela história afro-brasileira do Rio.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000051,
+  "id": "s-pequena-africa-e-cais-do-valongo"
+ },
+ {
+  "name": "Parque das Ruínas",
+  "category": "cultura",
+  "area": "Santa Teresa",
+  "note": "Ruínas de casarão com mirante e eventos.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000052,
+  "id": "s-parque-das-ruinas"
+ },
+ {
+  "name": "Mosteiro de São Bento",
+  "category": "cultura",
+  "area": "Centro",
+  "note": "Igreja barroca toda em ouro. Missa com canto gregoriano no domingo.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000053,
+  "id": "s-mosteiro-de-sao-bento"
+ },
+ {
+  "name": "Museu do Pontal",
+  "category": "cultura",
+  "area": "Barra da Tijuca",
+  "note": "Maior acervo de arte popular do país.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000054,
+  "id": "s-museu-do-pontal"
+ },
+ {
+  "name": "Tour na Rocinha ou no Vidigal",
+  "category": "cultura",
+  "area": "Zona Sul",
+  "note": "Com guia local, vista absurda lá de cima.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000055,
+  "id": "s-tour-na-rocinha-ou-no-vidigal"
+ },
+ {
+  "name": "Bar do Mineiro",
+  "category": "boteco",
+  "area": "Santa Teresa",
+  "note": "Pastel de feijão e feijoada. Clássico de Santa.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000056,
+  "id": "s-bar-do-mineiro"
+ },
+ {
+  "name": "Jobi",
+  "category": "boteco",
+  "area": "Leblon",
+  "note": "Boteco tradicional aberto até tarde.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000057,
+  "id": "s-jobi"
+ },
+ {
+  "name": "Bracarense",
+  "category": "boteco",
+  "area": "Leblon",
+  "note": "Chope gelado e bolinho de aipim com camarão.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000058,
+  "id": "s-bracarense"
+ },
+ {
+  "name": "Bar Urca",
+  "category": "boteco",
+  "area": "Urca",
+  "note": "Cerveja na mureta vendo o pôr do sol na baía.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000059,
+  "id": "s-bar-urca"
+ },
+ {
+  "name": "Bar Luiz",
+  "category": "boteco",
+  "area": "Centro",
+  "note": "Desde 1887, chope e salsichão.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000060,
+  "id": "s-bar-luiz"
+ },
+ {
+  "name": "Bar do Adão",
+  "category": "boteco",
+  "area": "Grajaú",
+  "note": "Pastéis com dezenas de recheios.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000061,
+  "id": "s-bar-do-adao"
+ },
+ {
+  "name": "Botecos da Praça da Bandeira",
+  "category": "boteco",
+  "area": "Praça da Bandeira",
+  "note": "Point de boteco raiz, tipo Aconchego Carioca.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000062,
+  "id": "s-botecos-da-praca-da-bandeira"
+ },
+ {
+  "name": "Pavão Azul",
+  "category": "boteco",
+  "area": "Copacabana",
+  "note": "Patanisca de bacalhau na calçada.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000063,
+  "id": "s-pavao-azul"
+ },
+ {
+  "name": "Adega Pérola",
+  "category": "boteco",
+  "area": "Copacabana",
+  "note": "Balcão cheio de petiscos portugueses.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000064,
+  "id": "s-adega-perola"
+ },
+ {
+  "name": "Chico & Alaíde",
+  "category": "boteco",
+  "area": "Leblon",
+  "note": "Boteco moderno com petiscos caprichados.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000065,
+  "id": "s-chico-alaide"
+ },
+ {
+  "name": "Botecos do Baixo Botafogo",
+  "category": "boteco",
+  "area": "Botafogo",
+  "note": "Rua Voluntários e arredores lotados à noite.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000066,
+  "id": "s-botecos-do-baixo-botafogo"
+ },
+ {
+  "name": "Bar da Gema",
+  "category": "boteco",
+  "area": "Tijuca",
+  "note": "Coxinha famosa, boteco premiado.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000067,
+  "id": "s-bar-da-gema"
+ },
+ {
+  "name": "Churrascaria Fogo de Chão",
+  "category": "comida",
+  "area": "Botafogo",
+  "note": "Rodízio com vista pro Pão de Açúcar.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000068,
+  "id": "s-churrascaria-fogo-de-chao"
+ },
+ {
+  "name": "Biscoito Globo e mate na praia",
+  "category": "comida",
+  "area": "Orla",
+  "note": "Obrigatório. Compra do ambulante.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000069,
+  "id": "s-biscoito-globo-e-mate-na-praia"
+ },
+ {
+  "name": "Açaí na orla",
+  "category": "comida",
+  "area": "Zona Sul",
+  "note": "Açaí na tigela depois da praia.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000070,
+  "id": "s-acai-na-orla"
+ },
+ {
+  "name": "Feira de Ipanema (Praça General Osório)",
+  "category": "comida",
+  "area": "Ipanema",
+  "note": "Feira hippie no domingo com acarajé.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000071,
+  "id": "s-feira-de-ipanema-praca-general-osorio"
+ },
+ {
+  "name": "Confeitaria Kurt",
+  "category": "comida",
+  "area": "Leblon",
+  "note": "Tortas alemãs clássicas.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000072,
+  "id": "s-confeitaria-kurt"
+ },
+ {
+  "name": "Cervantes",
+  "category": "comida",
+  "area": "Copacabana",
+  "note": "Sanduíche de pernil com abacaxi de madrugada.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000073,
+  "id": "s-cervantes"
+ },
+ {
+  "name": "Galeto Sat's",
+  "category": "comida",
+  "area": "Copacabana",
+  "note": "Galeto e caipirinha no balcão, aberto até tarde.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000074,
+  "id": "s-galeto-sat-s"
+ },
+ {
+  "name": "Casa Momus",
+  "category": "comida",
+  "area": "Lapa",
+  "note": "Comida mediterrânea no meio da Lapa.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000075,
+  "id": "s-casa-momus"
+ },
+ {
+  "name": "CADEG (Mercado de Benfica)",
+  "category": "comida",
+  "area": "Benfica",
+  "note": "Almoço de sábado com bacalhau e muita gente.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000076,
+  "id": "s-cadeg-mercado-de-benfica"
+ },
+ {
+  "name": "Lapa à noite",
+  "category": "noite",
+  "area": "Lapa",
+  "note": "Rua lotada, bares e casas de samba. Fica esperto com o celular.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000077,
+  "id": "s-lapa-a-noite"
+ },
+ {
+  "name": "Rio Scenarium",
+  "category": "noite",
+  "area": "Lapa",
+  "note": "Casarão de três andares cheio de antiguidades, samba e choro.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000078,
+  "id": "s-rio-scenarium"
+ },
+ {
+  "name": "Pedra do Sal",
+  "category": "noite",
+  "area": "Saúde",
+  "note": "Roda de samba na rua, segunda e sexta.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000079,
+  "id": "s-pedra-do-sal"
+ },
+ {
+  "name": "Samba do Trabalhador (Renascença)",
+  "category": "noite",
+  "area": "Andaraí",
+  "note": "Roda de segunda à tarde, muito tradicional.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000080,
+  "id": "s-samba-do-trabalhador-renascenca"
+ },
+ {
+  "name": "Ensaio de escola de samba",
+  "category": "noite",
+  "area": "Vários",
+  "note": "Mangueira, Salgueiro, Portela. Ensaios de agosto a fevereiro.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000081,
+  "id": "s-ensaio-de-escola-de-samba"
+ },
+ {
+  "name": "Baile na Rocinha ou no Vidigal",
+  "category": "noite",
+  "area": "Zona Sul",
+  "note": "Baile funk. Vai com quem conhece.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000082,
+  "id": "s-baile-na-rocinha-ou-no-vidigal"
+ },
+ {
+  "name": "Carioca da Gema",
+  "category": "noite",
+  "area": "Lapa",
+  "note": "Samba ao vivo num sobrado.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000083,
+  "id": "s-carioca-da-gema"
+ },
+ {
+  "name": "Baixo Gávea",
+  "category": "noite",
+  "area": "Gávea",
+  "note": "Praça lotada de gente bebendo na rua.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000084,
+  "id": "s-baixo-gavea"
+ },
+ {
+  "name": "Circo Voador",
+  "category": "noite",
+  "area": "Lapa",
+  "note": "Show de música debaixo da lona, programação variada.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000085,
+  "id": "s-circo-voador"
+ },
+ {
+  "name": "Blue Note Rio",
+  "category": "noite",
+  "area": "Copacabana",
+  "note": "Jazz com vista pra praia.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000086,
+  "id": "s-blue-note-rio"
+ },
+ {
+  "name": "Barca para Niterói",
+  "category": "passeio",
+  "area": "Praça XV",
+  "note": "Barca de 20 min com a melhor vista da baía.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000087,
+  "id": "s-barca-para-niteroi"
+ },
+ {
+  "name": "Passeio de barco pela Baía",
+  "category": "passeio",
+  "area": "Marina da Glória",
+  "note": "Escuna passando pelo Pão de Açúcar e ilhas.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000088,
+  "id": "s-passeio-de-barco-pela-baia"
+ },
+ {
+  "name": "Ilha de Paquetá",
+  "category": "passeio",
+  "area": "Baía de Guanabara",
+  "note": "Ilha sem carro, de barca. Aluga bike e roda.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000089,
+  "id": "s-ilha-de-paqueta"
+ },
+ {
+  "name": "Arraial do Cabo",
+  "category": "passeio",
+  "area": "Região dos Lagos",
+  "note": "Água azul-turquesa, passeio de barco. Bate-volta de 3h.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000090,
+  "id": "s-arraial-do-cabo"
+ },
+ {
+  "name": "Búzios",
+  "category": "passeio",
+  "area": "Região dos Lagos",
+  "note": "Praias e Rua das Pedras. Melhor com pernoite.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000091,
+  "id": "s-buzios"
+ },
+ {
+  "name": "Petrópolis",
+  "category": "passeio",
+  "area": "Serra",
+  "note": "Museu Imperial e cervejarias. 1h de estrada.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000092,
+  "id": "s-petropolis"
+ },
+ {
+  "name": "Ilha Grande",
+  "category": "passeio",
+  "area": "Angra dos Reis",
+  "note": "Lopes Mendes e trilhas. Pede no mínimo 2 dias.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000093,
+  "id": "s-ilha-grande"
+ },
+ {
+  "name": "Paraty",
+  "category": "passeio",
+  "area": "Costa Verde",
+  "note": "Centro histórico e passeio de barco. 4h de estrada.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000094,
+  "id": "s-paraty"
+ },
+ {
+  "name": "Pedalada na orla (Bike Itaú)",
+  "category": "passeio",
+  "area": "Zona Sul",
+  "note": "Bike alugada pelo app, do Leme ao Leblon.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000095,
+  "id": "s-pedalada-na-orla-bike-itau"
+ },
+ {
+  "name": "Domingo na orla fechada",
+  "category": "passeio",
+  "area": "Zona Sul",
+  "note": "Pista da orla fechada pros carros aos domingos.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000096,
+  "id": "s-domingo-na-orla-fechada"
+ }
+]
