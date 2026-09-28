@@ -4,7 +4,7 @@ Site pra galera da viagem escolher onde ir no Rio: cada um marca **Quero ir** no
 
 - `index.html`: o site (HTML/CSS/JS puro, sem build).
 - `config.js`: URL e chave pública do Supabase.
-- `supabase.sql`: cria as tabelas, as regras de acesso e os 113 lugares iniciais.
+- `supabase.sql`: cria as tabelas, as regras de acesso e só a estrutura (os lugares o site coloca sozinho).
 - `places-seed.json`: os mesmos lugares em JSON; o site coloca no banco sozinho os que faltarem.
 
 ## Colocar no ar (uma vez só)
@@ -21,4 +21,4 @@ Site pra galera da viagem escolher onde ir no Rio: cada um marca **Quero ir** no
 
 A identidade de cada pessoa é um id aleatório guardado no navegador dela. Os lugares da lista inicial não podem ser apagados pelo site; lugares adicionados só aparecem com "Remover" pra quem adicionou.
 
-Categorias: `praia`, `mirante`, `postal`, `cultura`, `boteco`, `comida`, `noite`, `passeio`.
+Categorias: `praia`, `mirante`, `postal`, `cultura`, `comida`, `noite`, `passeio`. Pra mudar a lista inicial, edite `places-seed.json`: lugares novos entram no banco sozinhos e os que saírem do arquivo somem do site.

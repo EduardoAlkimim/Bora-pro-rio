@@ -174,11 +174,10 @@ label small{font-weight:400;color:var(--muted)}
 <script>
 const CATS = [
   {id:"praia", label:"Praias"},
-  {id:"mirante", label:"Mirantes e trilhas"},
+  {id:"mirante", label:"Trilhas e mirantes"},
   {id:"postal", label:"Cartões-postais"},
   {id:"cultura", label:"Museus e cultura"},
-  {id:"boteco", label:"Bares e botecos"},
-  {id:"comida", label:"Onde comer"},
+  {id:"comida", label:"Comer e beber"},
   {id:"noite", label:"Noite e samba"},
   {id:"passeio", label:"Passeios e bate-volta"},
 ];
@@ -186,7 +185,7 @@ const catLabel = id => (CATS.find(c => c.id === id) || {label:"Outros"}).label;
 const AV_COLORS = ["#0E5A73","#2F7D4F","#B45309","#7C3AED","#BE185D","#0F766E","#9A3412","#1D4ED8"];
 const CFG = window.BORA_CONFIG || {};
 
-const S = {me:loadMe(), places:[], votes:{}, cat:"all", q:"", sort:"votos", loaded:false, confirmDel:null, busy:new Set(), lastRaw:""};
+const S = {me:loadMe(), seed:[], seedById:{}, places:[], votes:{}, cat:"all", q:"", sort:"votos", loaded:false, confirmDel:null, busy:new Set(), lastRaw:""};
 
 const $ = id => document.getElementById(id);
 const norm = s => (s||"").toString().normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase().trim();
@@ -262,7 +261,14 @@ async function refresh(){
     $("notice").hidden=true;
     if (raw===S.lastRaw && S.loaded) return;
     S.lastRaw=raw;
-    S.places=places;
+    // lugares da lista inicial que saíram do places-seed.json ficam escondidos
+    S.places=places
+      .filter(p=>p.added_by!=="lista" || !S.seed.length || S.seedById[p.id])
+      .map(p=>{
+        const sd=p.added_by==="lista" && S.seedById[p.id];
+        if (sd) return {...p, name:sd.name, category:sd.category, area:sd.area, note:sd.note};
+        return p.category==="boteco" ? {...p,category:"comida"} : p;
+      });
     const v={}; for (const x of votes){ (v[x.place_id] ||= []).push({id:x.voter_id,name:x.voter_name}); }
     // mantém votos que eu acabei de dar/tirar e o servidor ainda não confirmou
     for (const pid of S.busy){ const mine=(S.votes[pid]||[]).some(u=>u.id===S.me.id); const list=(v[pid]||[]).filter(u=>u.id!==S.me.id); if (mine) list.push({id:S.me.id,name:S.me.name}); v[pid]=list; }
@@ -282,7 +288,7 @@ let seeded=false;
 async function seedMissing(){
   if (seeded) return; seeded=true;
   try{
-    const seed=await (await fetch("places-seed.json",{cache:"no-cache"})).json();
+    const seed=S.seed;
     const have=new Set(S.places.map(p=>p.id));
     const rows=seed.filter(p=>!have.has(p.id)).map(p=>({id:p.id,name:p.name,category:p.category,area:p.area||"",note:p.note||"",link:p.link||"",added_by:"lista"}));
     if (!rows.length) return;
@@ -321,9 +327,11 @@ function card(p){
       title:on?"Tirar meu voto":"Quero ir","aria-label":(on?"Tirar voto de ":"Quero ir: ")+p.name,
       onclick:()=>toggleVote(p.id)},
     el("span",{class:"c"},String(vs.length)), el("span",{class:"l"},on?"Vou!":"Quero ir"));
-  const q=encodeURIComponent([p.name,p.area,"Rio de Janeiro"].filter(Boolean).join(", "));
+  const sd=S.seedById[p.id];
+  const q=encodeURIComponent(sd && "maps" in sd ? sd.maps : [p.name,p.area,"Rio de Janeiro"].filter(Boolean).join(", "));
+  const noMap = sd && sd.category==="comida" && !sd.maps || (sd && sd.name==="Baile funk");
   const links=el("div",{class:"links"},
-    el("a",{href:"https://www.google.com/maps/search/?api=1&query="+q,target:"_blank",rel:"noopener"},"Mapa"),
+    noMap?null:el("a",{href:"https://www.google.com/maps/search/?api=1&query="+q,target:"_blank",rel:"noopener"},"Mapa"),
     safeUrl(p.link)?el("a",{href:p.link,target:"_blank",rel:"noopener"},"Link"):null);
   if (p.added_by && p.added_by===S.me.id){
     const armed=S.confirmDel===p.id;
@@ -419,7 +427,9 @@ if (!CFG.supabaseUrl || !CFG.supabaseKey || CFG.supabaseUrl.includes("COLE_AQUI"
   n.textContent="Falta configurar o banco: preencha config.js com a URL e a chave do Supabase.";
   render();
 } else {
-  refresh();
+  fetch("places-seed.json",{cache:"no-cache"}).then(r=>r.json()).then(seed=>{
+    S.seed=seed; for (const p of seed) S.seedById[p.id]=p;
+  }).catch(()=>{}).finally(refresh);
   setInterval(()=>{ if (document.visibilityState==="visible") refresh(); }, 6000);
   document.addEventListener("visibilitychange", ()=>{ if (document.visibilityState==="visible") refresh(); });
 }
