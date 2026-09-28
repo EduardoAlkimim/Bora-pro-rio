@@ -267,11 +267,28 @@ async function refresh(){
     // mantém votos que eu acabei de dar/tirar e o servidor ainda não confirmou
     for (const pid of S.busy){ const mine=(S.votes[pid]||[]).some(u=>u.id===S.me.id); const list=(v[pid]||[]).filter(u=>u.id!==S.me.id); if (mine) list.push({id:S.me.id,name:S.me.name}); v[pid]=list; }
     S.votes=v; S.loaded=true; render();
+    seedMissing();
   }catch(e){
     S.loaded=true;
-    const n=$("notice"); n.hidden=false; n.textContent="Não consegui carregar a lista. Confere a internet e recarrega a página.";
+    const n=$("notice"); n.hidden=false;
+    n.textContent = /PGRST205|42P01|404/.test(String(e.message))
+      ? "O banco ainda não foi criado. Rode o arquivo supabase.sql no SQL Editor do Supabase."
+      : "Não consegui carregar a lista. Confere a internet e recarrega a página.";
     render();
   }
+}
+// Coloca no banco os lugares da lista inicial que ainda não estão lá (não duplica).
+let seeded=false;
+async function seedMissing(){
+  if (seeded) return; seeded=true;
+  try{
+    const seed=await (await fetch("places-seed.json",{cache:"no-cache"})).json();
+    const have=new Set(S.places.map(p=>p.id));
+    const rows=seed.filter(p=>!have.has(p.id)).map(p=>({id:p.id,name:p.name,category:p.category,area:p.area||"",note:p.note||"",link:p.link||"",added_by:"lista"}));
+    if (!rows.length) return;
+    await api("places?on_conflict=id",{method:"POST",body:rows,prefer:"resolution=ignore-duplicates,return=minimal"});
+    S.lastRaw=""; refresh();
+  }catch{}
 }
 
 // ---- render ----

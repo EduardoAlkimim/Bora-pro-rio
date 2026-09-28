@@ -136,5 +136,21 @@ insert into places (id, name, category, area, note, added_by) values
   ('s-ilha-grande', 'Ilha Grande', 'passeio', 'Angra dos Reis', 'Lopes Mendes e trilhas. Pede no mínimo 2 dias.', 'lista'),
   ('s-paraty', 'Paraty', 'passeio', 'Costa Verde', 'Centro histórico e passeio de barco. 4h de estrada.', 'lista'),
   ('s-pedalada-na-orla-bike-itau', 'Pedalada na orla (Bike Itaú)', 'passeio', 'Zona Sul', 'Bike alugada pelo app, do Leme ao Leblon.', 'lista'),
-  ('s-domingo-na-orla-fechada', 'Domingo na orla fechada', 'passeio', 'Zona Sul', 'Pista da orla fechada pros carros aos domingos.', 'lista')
+  ('s-domingo-na-orla-fechada', 'Domingo na orla fechada', 'passeio', 'Zona Sul', 'Pista da orla fechada pros carros aos domingos.', 'lista'),
+  ('s-praia-do-pepe', 'Praia do Pepê', 'praia', 'Barra da Tijuca', 'Point da Barra, quiosques e kitesurf.', 'lista'),
+  ('s-praia-de-piratininga', 'Praia de Piratininga', 'praia', 'Niterói', 'Lagoa e mar lado a lado, pôr do sol bonito.', 'lista'),
+  ('s-praia-do-diabo', 'Praia do Diabo', 'praia', 'Arpoador', 'Prainha escondida entre o Arpoador e o Forte.', 'lista'),
+  ('s-forte-de-copacabana', 'Forte de Copacabana', 'postal', 'Copacabana', 'Museu, vista da praia e café da Colombo no forte.', 'lista'),
+  ('s-mureta-da-urca', 'Mureta da Urca', 'postal', 'Urca', 'Senta na mureta com cerveja e petisco vendo a baía.', 'lista'),
+  ('s-sambodromo-marques-de-sapucai', 'Sambódromo (Marquês de Sapucaí)', 'postal', 'Centro', 'Dá pra visitar e conhecer a Cidade do Samba ali perto.', 'lista'),
+  ('s-catedral-metropolitana', 'Catedral Metropolitana', 'postal', 'Centro', 'Catedral em forma de cone com vitrais gigantes.', 'lista'),
+  ('s-parque-madureira', 'Parque Madureira', 'postal', 'Madureira', 'Parque grande da Zona Norte, com praia artificial.', 'lista'),
+  ('s-trilha-da-pedra-do-pontal', 'Trilha da Pedra do Pontal', 'mirante', 'Recreio', 'Trilha curta com vista do Recreio e da Prainha.', 'lista'),
+  ('s-caminho-dos-pescadores-e-forte-do-leme', 'Caminho dos Pescadores e Forte do Leme', 'mirante', 'Leme', 'Caminhada na pedra do Leme e trilha até o forte.', 'lista'),
+  ('s-cachoeira-do-horto', 'Cachoeira do Horto', 'mirante', 'Jardim Botânico', 'Trilha fácil até poço de água gelada.', 'lista'),
+  ('s-morro-da-babilonia', 'Morro da Babilônia', 'mirante', 'Leme', 'Trilha curta com vista de Copacabana.', 'lista'),
+  ('s-pedra-do-telegrafo-com-praia-do-perigoso', 'Pedra do Telégrafo com Praia do Perigoso', 'mirante', 'Barra de Guaratiba', 'Combina a foto da Pedra com praias selvagens.', 'lista'),
+  ('s-trilha-da-pedra-do-elefante-alto-mourao', 'Trilha da Pedra do Elefante (Alto Mourão)', 'mirante', 'Niterói', 'Vista de Itacoatiara e do Rio. Trilha pesada.', 'lista'),
+  ('s-trilha-transcarioca-trecho-grumari', 'Trilha Transcarioca (trecho Grumari)', 'mirante', 'Grumari', 'Trecho da trilha que cruza a cidade, com mirantes das praias.', 'lista'),
+  ('s-mirante-do-pasmado', 'Mirante do Pasmado', 'mirante', 'Botafogo', 'Vista da enseada de Botafogo e do Pão de Açúcar.', 'lista')
 on conflict (id) do nothing;

@@ -4,8 +4,8 @@ Site pra galera da viagem escolher onde ir no Rio: cada um marca **Quero ir** no
 
 - `index.html`: o site (HTML/CSS/JS puro, sem build).
 - `config.js`: URL e chave pública do Supabase.
-- `supabase.sql`: cria as tabelas, as regras de acesso e os 97 lugares iniciais.
-- `places-seed.json`: os mesmos 97 lugares em JSON.
+- `supabase.sql`: cria as tabelas, as regras de acesso e os 113 lugares iniciais.
+- `places-seed.json`: os mesmos lugares em JSON; o site coloca no banco sozinho os que faltarem.
 
 ## Colocar no ar (uma vez só)
 

@@ -968,5 +968,165 @@
   "addedBy": "lista",
   "createdAt": 1790500000096,
   "id": "s-domingo-na-orla-fechada"
+ },
+ {
+  "name": "Praia do Pepê",
+  "category": "praia",
+  "area": "Barra da Tijuca",
+  "note": "Point da Barra, quiosques e kitesurf.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000097,
+  "id": "s-praia-do-pepe"
+ },
+ {
+  "name": "Praia de Piratininga",
+  "category": "praia",
+  "area": "Niterói",
+  "note": "Lagoa e mar lado a lado, pôr do sol bonito.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000098,
+  "id": "s-praia-de-piratininga"
+ },
+ {
+  "name": "Praia do Diabo",
+  "category": "praia",
+  "area": "Arpoador",
+  "note": "Prainha escondida entre o Arpoador e o Forte.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000099,
+  "id": "s-praia-do-diabo"
+ },
+ {
+  "name": "Forte de Copacabana",
+  "category": "postal",
+  "area": "Copacabana",
+  "note": "Museu, vista da praia e café da Colombo no forte.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000100,
+  "id": "s-forte-de-copacabana"
+ },
+ {
+  "name": "Mureta da Urca",
+  "category": "postal",
+  "area": "Urca",
+  "note": "Senta na mureta com cerveja e petisco vendo a baía.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000101,
+  "id": "s-mureta-da-urca"
+ },
+ {
+  "name": "Sambódromo (Marquês de Sapucaí)",
+  "category": "postal",
+  "area": "Centro",
+  "note": "Dá pra visitar e conhecer a Cidade do Samba ali perto.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000102,
+  "id": "s-sambodromo-marques-de-sapucai"
+ },
+ {
+  "name": "Catedral Metropolitana",
+  "category": "postal",
+  "area": "Centro",
+  "note": "Catedral em forma de cone com vitrais gigantes.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000103,
+  "id": "s-catedral-metropolitana"
+ },
+ {
+  "name": "Parque Madureira",
+  "category": "postal",
+  "area": "Madureira",
+  "note": "Parque grande da Zona Norte, com praia artificial.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000104,
+  "id": "s-parque-madureira"
+ },
+ {
+  "name": "Trilha da Pedra do Pontal",
+  "category": "mirante",
+  "area": "Recreio",
+  "note": "Trilha curta com vista do Recreio e da Prainha.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000105,
+  "id": "s-trilha-da-pedra-do-pontal"
+ },
+ {
+  "name": "Caminho dos Pescadores e Forte do Leme",
+  "category": "mirante",
+  "area": "Leme",
+  "note": "Caminhada na pedra do Leme e trilha até o forte.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000106,
+  "id": "s-caminho-dos-pescadores-e-forte-do-leme"
+ },
+ {
+  "name": "Cachoeira do Horto",
+  "category": "mirante",
+  "area": "Jardim Botânico",
+  "note": "Trilha fácil até poço de água gelada.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000107,
+  "id": "s-cachoeira-do-horto"
+ },
+ {
+  "name": "Morro da Babilônia",
+  "category": "mirante",
+  "area": "Leme",
+  "note": "Trilha curta com vista de Copacabana.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000108,
+  "id": "s-morro-da-babilonia"
+ },
+ {
+  "name": "Pedra do Telégrafo com Praia do Perigoso",
+  "category": "mirante",
+  "area": "Barra de Guaratiba",
+  "note": "Combina a foto da Pedra com praias selvagens.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000109,
+  "id": "s-pedra-do-telegrafo-com-praia-do-perigoso"
+ },
+ {
+  "name": "Trilha da Pedra do Elefante (Alto Mourão)",
+  "category": "mirante",
+  "area": "Niterói",
+  "note": "Vista de Itacoatiara e do Rio. Trilha pesada.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000110,
+  "id": "s-trilha-da-pedra-do-elefante-alto-mourao"
+ },
+ {
+  "name": "Trilha Transcarioca (trecho Grumari)",
+  "category": "mirante",
+  "area": "Grumari",
+  "note": "Trecho da trilha que cruza a cidade, com mirantes das praias.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000111,
+  "id": "s-trilha-transcarioca-trecho-grumari"
+ },
+ {
+  "name": "Mirante do Pasmado",
+  "category": "mirante",
+  "area": "Botafogo",
+  "note": "Vista da enseada de Botafogo e do Pão de Açúcar.",
+  "link": "",
+  "addedBy": "lista",
+  "createdAt": 1790500000112,
+  "id": "s-mirante-do-pasmado"
  }
 ]
