@@ -245,7 +245,8 @@ $("meForm").addEventListener("submit", async ev=>{
 
 // ---- Supabase (REST) ----
 async function api(path, {method="GET", body, prefer}={}){
-  const headers={apikey:CFG.supabaseKey, Authorization:"Bearer "+CFG.supabaseKey};
+  const headers={apikey:CFG.supabaseKey};
+  if (CFG.supabaseKey.startsWith("eyJ")) headers.Authorization="Bearer "+CFG.supabaseKey; // chave antiga (JWT)
   if (body) headers["Content-Type"]="application/json";
   if (prefer) headers.Prefer=prefer;
   const r=await fetch(CFG.supabaseUrl.replace(/\/$/,"")+"/rest/v1/"+path,{method,headers,body:body?JSON.stringify(body):undefined});

@@ -1,6 +1,6 @@
-// Preencha com os dados do teu projeto no Supabase (Project Settings → API).
-// A "anon public key" é feita pra ficar no navegador; quem protege os dados são as regras do supabase.sql.
+// Dados do projeto no Supabase (Project Settings → API).
+// A chave publishable é feita pra ficar no navegador; quem protege os dados são as regras do supabase.sql.
 window.BORA_CONFIG = {
-  supabaseUrl: "COLE_AQUI_A_URL",   // ex.: https://abcdxyz.supabase.co
-  supabaseKey: "COLE_AQUI_A_ANON_KEY",
+  supabaseUrl: "https://yuqppcmhwuojaxqtqwrq.supabase.co",
+  supabaseKey: "sb_publishable_H5-tNJXMVZPf5xRibWsrCw_P7gwk4sp",
 };
