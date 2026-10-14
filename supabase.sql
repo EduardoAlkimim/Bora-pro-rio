@@ -18,3 +18,5 @@ create policy "ler votos" on votes for select to anon using (true);
 create policy "votar" on votes for insert to anon with check (true);
 create policy "tirar voto" on votes for delete to anon using (true);
 create policy "trocar nome" on votes for update to anon using (true) with check (true);
+
+notify pgrst, 'reload schema';
