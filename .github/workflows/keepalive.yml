@@ -14,4 +14,6 @@ jobs:
         run: |
           URL=$(grep -o 'https://[a-z0-9]*\.supabase\.co' config.js)
           KEY=$(grep -o 'sb_publishable_[A-Za-z0-9_-]*' config.js)
-          curl -fsS "$URL/rest/v1/places?select=id&limit=1" -H "apikey: $KEY"
+          CODE=$(curl -sS -o body.txt -w "%{http_code}" "$URL/rest/v1/places?select=id&limit=1" -H "apikey: $KEY" || echo 000)
+          BODY=$(head -c 300 body.txt | tr '\n' ' ')
+          if [ "$CODE" = "200" ]; then echo "::notice::Banco OK (HTTP 200) $BODY"; else echo "::error::Banco respondeu HTTP $CODE: $BODY"; exit 1; fi
