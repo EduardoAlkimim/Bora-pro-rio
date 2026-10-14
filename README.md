@@ -1,6 +1,8 @@
 # Bora pro Rio
 
-Site pra galera da viagem escolher onde ir no Rio: cada um marca **Quero ir** nos lugares que curte e pode adicionar lugares novos. Sem login: a pessoa só coloca o nome.
+Site pra galera da viagem escolher onde ir no Rio. Cada pessoa coloca o nome e passa pelos lugares um por vez (com foto, região, tempo e custo), marcando **Quero ir** ou **Pular**. O **Ranking** mostra o que a galera mais quer. Dá pra ver a lista inteira em **Todos** e sugerir lugares novos.
+
+As fotos vêm da Wikipédia (campo `wiki` em `places-seed.json`). Se o banco estiver fora do ar, o site continua mostrando os lugares, só não deixa votar.
 
 - `index.html`: o site (HTML/CSS/JS puro, sem build).
 - `config.js`: URL e chave pública do Supabase.
@@ -22,3 +24,7 @@ Site pra galera da viagem escolher onde ir no Rio: cada um marca **Quero ir** no
 A identidade de cada pessoa é um id aleatório guardado no navegador dela. Os lugares da lista inicial não podem ser apagados pelo site; lugares adicionados só aparecem com "Remover" pra quem adicionou.
 
 Categorias: `praia`, `mirante`, `postal`, `cultura`, `comida`, `noite`, `passeio`. Pra mudar a lista inicial, edite `places-seed.json`: lugares novos entram no banco sozinhos e os que saírem do arquivo somem do site.
+
+## Banco pausado
+
+O Supabase grátis pausa o projeto depois de 7 dias sem uso. A automação `.github/workflows/keepalive.yml` faz uma leitura a cada 3 dias pra evitar isso. Se pausar mesmo assim: Supabase → projeto → **Restore project**.

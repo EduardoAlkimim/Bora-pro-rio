@@ -4,435 +4,731 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Bora pro Rio</title>
-<meta name="description" content="Lista de lugares no Rio pra galera votar e sugerir.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%278%27 fill=%27%23F2B705%27/%3E%3Cpath d=%27M4 14c4-5 8-5 12 0s8 5 12 0v5c-4 5-8 5-12 0s-8-5-12 0z%27 fill=%27%2313242B%27/%3E%3C/svg%3E">
+<meta name="description" content="A galera escolhe junto onde ir no Rio: um lugar por vez, Quero ir ou Pular.">
+<meta name="theme-color" content="#C2410C">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23C2410C'/%3E%3Cpath d='M4 19c4-5 8-5 12 0s8 5 12 0v5c-4 5-8 5-12 0s-8-5-12 0z' fill='%23FFF7ED'/%3E%3Ccircle cx='22' cy='10' r='4' fill='%23FDBA74'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Figtree:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
 <style>
 :root{
-  --paper:#F3F7F6; --surface:#FFFFFF; --ink:#13242B; --muted:#5A6E75; --line:#D5E1E0;
-  --mar:#0E5A73; --mar-soft:#DCEBEF; --sol:#F2B705; --sol-ink:#3A2B00; --mata:#2F7D4F;
-  --danger:#B3261E; --wave:#13242B;
-  --display:"Unbounded", "Arial Black", system-ui, sans-serif;
-  --body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color-scheme:light;
+  --bg:#FFF7ED; --card:#FFFFFF; --fg:#1C1410; --muted:#5B4A40; --border:#F1DCCB; --soft:#FFEDD5;
+  --primary:#C2410C; --on-primary:#FFFFFF; --primary-soft:#FFEDD5;
+  --teal:#0E7490; --on-teal:#FFFFFF;
+  --gold:#B45309; --gold-soft:#FEF3C7; --danger:#B91C1C;
+  --shadow:0 1px 2px rgba(120,53,15,.06),0 8px 24px rgba(120,53,15,.08);
+  --head:"Fredoka","Nunito",ui-rounded,system-ui,sans-serif;
+  --body:"Nunito",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --nav-h:68px;
 }
-@media (prefers-color-scheme: dark){
+@media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
     color-scheme:dark;
-    --paper:#0D1A1F; --surface:#142A31; --ink:#E7F0EF; --muted:#9AB0B5; --line:#24404A;
-    --mar:#6CC3DD; --mar-soft:#16384377; --sol:#F5C63A; --sol-ink:#2A1F00; --mata:#6FC392;
-    --danger:#FF8A80; --wave:#E7F0EF;
+    --bg:#17110E; --card:#231915; --fg:#F8EFE8; --muted:#C4B2A5; --border:#3B2B23; --soft:#2E211B;
+    --primary:#FB923C; --on-primary:#1A0F0A; --primary-soft:#3A2418;
+    --teal:#5ECFE4; --on-teal:#06222A;
+    --gold:#FBBF24; --gold-soft:#3A2C10; --danger:#FCA5A5;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.35);
   }
 }
 :root[data-theme="dark"]{
   color-scheme:dark;
-  --paper:#0D1A1F; --surface:#142A31; --ink:#E7F0EF; --muted:#9AB0B5; --line:#24404A;
-  --mar:#6CC3DD; --mar-soft:#16384377; --sol:#F5C63A; --sol-ink:#2A1F00; --mata:#6FC392;
-  --danger:#FF8A80; --wave:#E7F0EF;
+  --bg:#17110E; --card:#231915; --fg:#F8EFE8; --muted:#C4B2A5; --border:#3B2B23; --soft:#2E211B;
+  --primary:#FB923C; --on-primary:#1A0F0A; --primary-soft:#3A2418;
+  --teal:#5ECFE4; --on-teal:#06222A;
+  --gold:#FBBF24; --gold-soft:#3A2C10; --danger:#FCA5A5;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.35);
 }
 *{box-sizing:border-box}
-html{color-scheme:light}
 [hidden]{display:none!important}
-img{max-width:100%}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5}
-.wrap{max-width:1040px;margin:0 auto;padding-inline:16px}
-.calcadao{height:34px;background:var(--wave);
-  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='34' viewBox='0 0 96 34'%3E%3Cpath d='M0 10 C12 0 36 0 48 10 S84 20 96 10 L96 22 C84 32 60 32 48 22 S12 12 0 22Z'/%3E%3C/svg%3E") repeat-x left center/96px 34px;
-          mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='34' viewBox='0 0 96 34'%3E%3Cpath d='M0 10 C12 0 36 0 48 10 S84 20 96 10 L96 22 C84 32 60 32 48 22 S12 12 0 22Z'/%3E%3C/svg%3E") repeat-x left center/96px 34px}
-header.hero{padding-block:28px 20px;display:grid;gap:14px}
-.eyebrow{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--mar)}
-h1{font-family:var(--display);font-weight:800;font-size:clamp(34px,7vw,64px);line-height:1;margin:0;letter-spacing:-.02em;text-wrap:balance}
-h1 .sol{background:var(--sol);color:var(--sol-ink);padding:0 .15em;border-radius:6px}
-.lede{margin:0;max-width:60ch;color:var(--muted);font-size:17px}
-.stats{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:14px;color:var(--muted)}
-.stats b{font-family:var(--display);font-weight:700;color:var(--ink);font-size:18px;font-variant-numeric:tabular-nums;margin-right:4px}
-.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);padding-block:12px;border-bottom:1px solid var(--line);display:grid;gap:10px}
-.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-.search{flex:1 1 220px;min-width:0}
-input,select,textarea{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:9px 12px;width:100%}
-textarea{resize:vertical;min-height:64px}
-input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid var(--sol);outline-offset:2px}
-button{font:inherit;cursor:pointer}
-.btn{border:0;border-radius:999px;padding:9px 16px;font-weight:700;background:var(--mar);color:var(--paper)}
-.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
-.chips{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px;scrollbar-width:thin}
-.chip{flex:none;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:5px 12px;font-size:14px;font-weight:600;white-space:nowrap}
-.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
-.chip .n{opacity:.6;font-variant-numeric:tabular-nums;margin-left:4px}
-.sortsel{width:auto}
-main{padding-block:18px 60px;display:grid;gap:26px}
-.notice{border:1px dashed var(--line);border-radius:12px;padding:14px 16px;color:var(--muted)}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:12px}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px;display:grid;gap:8px;align-content:start}
-.card.mine{border-color:var(--mar);box-shadow:inset 0 0 0 1px var(--mar)}
-.top{display:flex;gap:10px;justify-content:space-between;align-items:flex-start}
-.card h3{margin:0;font-size:18px;line-height:1.25;font-weight:700;text-wrap:balance}
-.meta{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 10px}
-.tag{font-weight:700;color:var(--mar)}
-.note{margin:0;font-size:15px}
-.vote{flex:none;display:grid;justify-items:center;min-width:58px;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:12px;padding:6px 8px;line-height:1.1}
-.vote .c{font-family:var(--display);font-weight:700;font-size:20px;font-variant-numeric:tabular-nums}
-.vote .l{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
-.vote[aria-pressed="true"]{background:var(--sol);border-color:var(--sol);color:var(--sol-ink)}
-.vote[aria-pressed="true"] .l{color:var(--sol-ink)}
-.vote:disabled{cursor:default;opacity:.7}
-.foot{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;font-size:13px}
-.who{display:flex;align-items:center;gap:6px;color:var(--muted);min-width:0}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.5;
+  padding-bottom:calc(var(--nav-h) + env(safe-area-inset-bottom,0px) + 16px)}
+img{max-width:100%;display:block}
+button{font:inherit;color:inherit;cursor:pointer}
+a{color:var(--teal)}
+:focus-visible{outline:3px solid var(--teal);outline-offset:2px;border-radius:8px}
+.wrap{max-width:720px;margin:0 auto;padding-inline:16px}
+h1,h2,h3{font-family:var(--head);font-weight:600;line-height:1.15;margin:0;text-wrap:balance}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+svg.i{width:20px;height:20px;flex:none;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* topo */
+.top{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  padding-top:env(safe-area-inset-top,0px);border-bottom:1px solid var(--border)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:56px}
+.brand{display:flex;align-items:center;gap:8px;font-family:var(--head);font-weight:700;font-size:20px;text-decoration:none;color:var(--fg)}
+.brand .dot{width:30px;height:30px;border-radius:9px;background:var(--primary);display:grid;place-items:center;color:var(--on-primary)}
+.chip-me{display:flex;align-items:center;gap:8px;border:1px solid var(--border);background:var(--card);border-radius:999px;padding:4px 12px 4px 4px;min-height:40px;font-weight:700;font-size:14px;max-width:55%}
+.chip-me span.n{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.av{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:800;color:#fff;flex:none}
+
+/* aviso */
+.notice{margin-top:12px;display:flex;gap:10px;align-items:flex-start;background:var(--gold-soft);color:var(--fg);border-radius:14px;padding:12px 14px;font-size:15px}
+.notice svg{color:var(--gold);margin-top:2px}
+
+/* boas-vindas */
+.welcome{padding-block:24px 8px;display:grid;gap:20px}
+.hero-art{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:16/10;background:linear-gradient(165deg,#FDBA74 0%,#F97316 40%,#0E7490 100%)}
+.hero-art .sun{position:absolute;width:30%;aspect-ratio:1;border-radius:50%;background:#FFF1D6;right:12%;top:12%}
+.hero-art svg{position:absolute;bottom:0;left:0;width:100%;height:64%}
+.hero-art h1{position:absolute;left:20px;bottom:16px;color:#fff;font-size:clamp(34px,9vw,54px);text-shadow:0 2px 12px rgba(0,0,0,.3)}
+.welcome p.lead{margin:0;font-size:18px;color:var(--muted)}
+.steps{display:grid;gap:10px;margin:0;padding:0;list-style:none;counter-reset:s}
+.steps li{display:flex;gap:12px;align-items:center;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:12px 14px}
+.steps li::before{counter-increment:s;content:counter(s);flex:none;width:30px;height:30px;border-radius:50%;background:var(--primary-soft);color:var(--primary);font-family:var(--head);font-weight:700;display:grid;place-items:center}
+.namebox{display:grid;gap:10px;background:var(--card);border:1px solid var(--border);border-radius:20px;padding:16px;box-shadow:var(--shadow)}
+.namebox label{font-weight:800;font-size:17px}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+input,select,textarea{font:inherit;color:var(--fg);background:var(--bg);border:1.5px solid var(--border);border-radius:12px;padding:12px 14px;width:100%;min-height:48px}
+input:focus,select:focus,textarea:focus{border-color:var(--teal);outline:none;box-shadow:0 0 0 3px color-mix(in srgb,var(--teal) 25%,transparent)}
+textarea{resize:vertical;min-height:84px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:14px;min-height:48px;padding:0 20px;font-weight:800;font-size:16px;
+  background:var(--primary);color:var(--on-primary);transition:transform .12s ease,filter .15s ease}
+.btn:hover{filter:brightness(1.06)}
+.btn:active{transform:scale(.97)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.btn.ghost{background:var(--card);color:var(--fg);border:1.5px solid var(--border)}
+.btn.block{width:100%}
+.err{color:var(--danger);font-weight:700;font-size:14px;margin:0}
+
+/* descobrir */
+.view{padding-block:16px 8px}
+.progress{display:grid;gap:6px;margin-bottom:12px}
+.progress .lbl{display:flex;justify-content:space-between;font-size:14px;font-weight:700;color:var(--muted);font-variant-numeric:tabular-nums}
+.bar{height:8px;background:var(--soft);border-radius:999px;overflow:hidden}
+.bar span{display:block;height:100%;background:var(--primary);border-radius:999px;transition:width .3s ease}
+.filters{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;margin-bottom:14px;scrollbar-width:none}
+.filters::-webkit-scrollbar{display:none}
+.fchip{flex:none;display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 14px;border-radius:999px;border:1.5px solid var(--border);background:var(--card);font-weight:700;font-size:14px;white-space:nowrap}
+.fchip[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.fchip .n{opacity:.65;font-variant-numeric:tabular-nums}
+
+.place{background:var(--card);border:1px solid var(--border);border-radius:24px;overflow:hidden;box-shadow:var(--shadow)}
+.ph{position:relative;aspect-ratio:4/3;overflow:hidden}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .35s ease}
+.ph img.on{opacity:1}
+.ph .fallback{position:absolute;inset:0;display:grid;place-items:center;color:#fff}
+.ph .fallback svg{width:56px;height:56px;stroke-width:1.6;opacity:.9}
+.ph .badges{position:absolute;left:12px;top:12px;display:flex;gap:6px;flex-wrap:wrap;z-index:1}
+.pill{display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:999px;font-size:13px;font-weight:800;background:rgba(255,255,255,.94);color:#1C1410}
+.pill.must{background:#FDE68A;color:#713F12}
+.pill svg{width:14px;height:14px}
+.credit{position:absolute;right:8px;bottom:6px;font-size:11px;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.7);text-decoration:none;z-index:1}
+.place .body{padding:16px 18px 18px;display:grid;gap:12px}
+.place h2{font-size:26px}
+.facts{display:flex;flex-wrap:wrap;gap:6px}
+.fact{display:inline-flex;align-items:center;gap:6px;background:var(--soft);border-radius:10px;padding:5px 10px;font-size:14px;font-weight:700;color:var(--fg)}
+.fact svg{width:16px;height:16px;color:var(--primary)}
+.place p.why{margin:0;font-size:17px}
+.who{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--muted);min-height:30px}
 .avs{display:flex}
-.av{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:700;color:#fff;border:2px solid var(--surface);margin-left:-6px}
-.av:first-child{margin-left:0}
-.links{display:flex;gap:12px}
-.links a,.linkbtn{color:var(--mar);font-weight:600;text-decoration:none;background:none;border:0;padding:0;font-size:13px}
-.links a:hover,.linkbtn:hover{text-decoration:underline}
+.avs .av{width:28px;height:28px;border:2px solid var(--card);margin-left:-8px;font-size:11px}
+.avs .av:first-child{margin-left:0}
+.actions{display:grid;grid-template-columns:1fr 1.4fr;gap:10px}
+.actions .btn{min-height:56px;font-size:18px;border-radius:16px}
+.sub-actions{display:flex;justify-content:space-between;gap:8px 12px;flex-wrap:wrap;margin-top:-4px}
+.linkbtn{display:inline-flex;align-items:center;gap:6px;background:none;border:0;padding:8px 2px;min-height:44px;color:var(--teal);font-weight:800;font-size:15px;text-decoration:none}
+.linkbtn svg{width:18px;height:18px}
 .linkbtn.danger{color:var(--danger)}
-section h2{font-family:var(--display);font-weight:700;font-size:22px;margin:0 0 4px}
-section .sub{margin:0 0 14px;color:var(--muted)}
-form.add{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px;display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
-form.add .full{grid-column:1/-1}
-label{display:grid;gap:4px;font-size:14px;font-weight:600}
-label small{font-weight:400;color:var(--muted)}
-.formmsg{font-size:14px;color:var(--muted);align-self:center}
-.formmsg.err{color:var(--danger)}
-.empty{color:var(--muted);padding:20px 0}
-.toast{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:10px 16px;border-radius:999px;font-weight:600;font-size:14px;z-index:20;max-width:calc(100% - 32px)}
-@media (max-width:560px){.search{flex-basis:100%}.row .btn{flex:1}form.add{grid-template-columns:1fr}.grid{grid-template-columns:1fr}}
-@media (prefers-reduced-motion:no-preference){.card{transition:border-color .15s}.vote{transition:background .15s,transform .1s}.vote:active{transform:scale(.96)}}
-.me{display:flex;flex-wrap:wrap;gap:8px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:10px 12px;max-width:520px}
-.me input{flex:1 1 180px;min-width:0}
-.me .hi{font-weight:600}
-.me.nudge{border-color:var(--sol);box-shadow:0 0 0 3px color-mix(in srgb,var(--sol) 40%,transparent)}
+.done{text-align:center;display:grid;gap:12px;justify-items:center;background:var(--card);border:1px solid var(--border);border-radius:24px;padding:32px 20px;box-shadow:var(--shadow)}
+.done .big{width:64px;height:64px;border-radius:50%;background:var(--primary-soft);color:var(--primary);display:grid;place-items:center}
+.done .big svg{width:32px;height:32px}
+.done p{margin:0;color:var(--muted);max-width:40ch}
+
+/* ranking */
+.sec-head{display:grid;gap:4px;margin-bottom:14px}
+.sec-head h2{font-size:28px}
+.sec-head p{margin:0;color:var(--muted)}
+.rank{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.rank li.item{display:grid;grid-template-columns:30px 64px minmax(0,1fr);gap:12px;align-items:center;background:var(--card);border:1px solid var(--border);border-radius:18px;padding:10px 14px 10px 10px}
+.rank .pos{font-family:var(--head);font-weight:700;font-size:20px;text-align:center;color:var(--muted);font-variant-numeric:tabular-nums}
+.rank li.item:nth-child(-n+3) .pos{color:var(--primary)}
+.thumb{width:64px;height:64px;border-radius:14px;overflow:hidden}
+.thumb .ph{aspect-ratio:auto;height:100%}
+.thumb .fallback svg{width:28px;height:28px}
+.rank h3{font-size:18px}
+.rank .meta{font-size:13px;color:var(--muted);margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.meter{display:flex;align-items:center;gap:8px;margin-top:6px}
+.meter .bar{flex:1;height:6px}
+.meter b{font-variant-numeric:tabular-nums;font-size:14px;white-space:nowrap}
+.people-h{font-family:var(--head);font-size:18px;margin:22px 0 8px}
+.people{display:flex;flex-wrap:wrap;gap:6px}
+.person{display:inline-flex;align-items:center;gap:6px;background:var(--card);border:1px solid var(--border);border-radius:999px;padding:3px 12px 3px 3px;font-size:14px;font-weight:700}
+.person .av{width:26px;height:26px;font-size:11px}
+.empty{background:var(--card);border:1.5px dashed var(--border);border-radius:18px;padding:24px;text-align:center;color:var(--muted);display:grid;gap:12px;justify-items:center}
+.empty p{margin:0}
+
+/* todos */
+.search{position:relative;margin-bottom:12px}
+.search svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--muted)}
+.search input{padding-left:44px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:12px}
+.mini{background:var(--card);border:1px solid var(--border);border-radius:18px;overflow:hidden;display:grid;grid-template-rows:auto 1fr}
+.mini .ph{aspect-ratio:16/9}
+.mini .body{padding:12px 14px 12px;display:grid;gap:8px;align-content:start}
+.mini h3{font-size:19px}
+.mini .why{margin:0;font-size:15px;color:var(--muted)}
+.mini .by{font-size:13px;color:var(--muted)}
+.mini .foot{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.vote{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 14px;border-radius:12px;border:1.5px solid var(--border);background:var(--bg);font-weight:800;font-size:15px}
+.vote[aria-pressed="true"]{background:var(--primary);border-color:var(--primary);color:var(--on-primary)}
+.vote:disabled{opacity:.5;cursor:not-allowed}
+.vote svg{width:18px;height:18px}
+.vote .c{font-variant-numeric:tabular-nums}
+.mini.mine{border-color:var(--primary);box-shadow:inset 0 0 0 1px var(--primary)}
+
+/* sugerir */
+form.add{display:grid;gap:14px;background:var(--card);border:1px solid var(--border);border-radius:20px;padding:18px}
+form.add label{display:grid;gap:6px;font-weight:800}
+form.add .hint{font-weight:600;color:var(--muted);font-size:14px}
+
+/* navegação de baixo */
+nav.tabs{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--card);border-top:1px solid var(--border);padding-bottom:env(safe-area-inset-bottom,0px)}
+nav.tabs .wrap{display:grid;grid-template-columns:repeat(4,1fr);height:var(--nav-h)}
+nav.tabs button{background:none;border:0;display:grid;justify-items:center;align-content:center;gap:2px;font-size:12px;font-weight:800;color:var(--muted);min-height:48px;position:relative}
+nav.tabs button svg{width:24px;height:24px}
+nav.tabs button[aria-current="page"]{color:var(--primary)}
+nav.tabs button[aria-current="page"]::before{content:"";position:absolute;top:0;left:28%;right:28%;height:3px;border-radius:0 0 3px 3px;background:var(--primary)}
+.badge{position:absolute;top:8px;left:calc(50% + 6px);background:var(--primary);color:var(--on-primary);font-size:11px;min-width:18px;height:18px;border-radius:9px;display:grid;place-items:center;padding:0 5px;font-variant-numeric:tabular-nums}
+
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(var(--nav-h) + env(safe-area-inset-bottom,0px) + 12px);background:var(--fg);color:var(--bg);padding:12px 18px;border-radius:14px;font-weight:700;z-index:30;max-width:calc(100% - 32px);box-shadow:var(--shadow)}
+@keyframes pop{from{transform:translateY(8px);opacity:0}to{transform:none;opacity:1}}
+@media (prefers-reduced-motion:no-preference){.place{animation:pop .22s ease-out}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+@media (min-width:720px){.place .ph{aspect-ratio:16/9}}
 </style>
 </head>
 <body>
-<div class="calcadao" aria-hidden="true"></div>
-<div class="wrap">
-  <header class="hero">
-    <div class="eyebrow">Rio de Janeiro · sem roteiro fixo</div>
-    <h1>Bora pro <span class="sol">Rio</span></h1>
-    <p class="lede">Lista de lugares pra galera escolher. Marca <b>Quero ir</b> nos que te interessam, e se faltar algum, adiciona lá embaixo. O mais votado sobe pro topo.</p>
-    <form class="me" id="meForm" autocomplete="off">
-      <span class="hi" id="meHi">Como a galera te chama?</span>
-      <input id="meName" maxlength="30" placeholder="Teu nome ou apelido" aria-label="Teu nome ou apelido">
-      <button class="btn" type="submit" id="meBtn">Entrar</button>
-    </form>
-    <div class="stats" id="stats"><span><b>…</b>lugares</span></div>
-  </header>
-</div>
 
-<div class="bar">
-  <div class="wrap" style="display:grid;gap:10px">
-    <div class="row">
-      <input class="search" id="q" type="search" placeholder="Buscar lugar ou bairro…" aria-label="Buscar lugar ou bairro">
-      <select id="sort" class="sortsel" aria-label="Ordenar">
-        <option value="votos">Mais votados</option>
-        <option value="novos">Adicionados agora</option>
-        <option value="nome">A–Z</option>
-      </select>
-      <button class="btn" id="goAdd" type="button">+ Adicionar lugar</button>
-    </div>
-    <div class="chips" id="chips" role="toolbar" aria-label="Filtrar por tipo"></div>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#" id="brand"><span class="dot"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 15c3-3 6-3 10 0s7 3 10 0"/><path d="M2 19c3-3 6-3 10 0s7 3 10 0"/><circle cx="17" cy="7" r="3"/></svg></span>Bora pro Rio</a>
+    <button class="chip-me" id="meChip" type="button" hidden aria-label="Trocar meu nome"></button>
   </div>
-</div>
+</header>
 
-<div class="wrap">
-  <main>
-    <div class="notice" id="notice" hidden></div>
-    <div class="grid" id="list" aria-live="polite"></div>
+<div class="wrap"><div class="notice" id="notice" role="status" hidden></div></div>
 
-    <section id="add">
-      <h2>Faltou algum lugar?</h2>
-      <p class="sub">Adiciona aqui. Todo mundo que tem o link vê.</p>
-      <form class="add" id="addForm" autocomplete="off">
-        <label class="full">Nome do lugar
-          <input id="fName" required maxlength="80" placeholder="Ex.: Bar do Mineiro">
-        </label>
-        <label>Tipo
-          <select id="fCat"></select>
-        </label>
-        <label>Bairro ou região
-          <input id="fArea" maxlength="60" placeholder="Ex.: Santa Teresa">
-        </label>
-        <label class="full">Por que ir? <small>(opcional)</small>
-          <textarea id="fNote" maxlength="280" placeholder="Ex.: pastel de feijão e samba no sábado"></textarea>
-        </label>
-        <label class="full">Link <small>(opcional: Instagram, Maps, site)</small>
-          <input id="fLink" type="url" maxlength="300" placeholder="https://">
-        </label>
-        <div class="row full">
-          <button class="btn" type="submit" id="fSubmit">Adicionar à lista</button>
-          <span class="formmsg" id="fMsg"></span>
-        </div>
-      </form>
-    </section>
-  </main>
-</div>
-<div class="calcadao" aria-hidden="true"></div>
-<div class="toast" id="toast" hidden></div>
+<main class="wrap">
+  <section class="welcome" id="v-welcome" hidden>
+    <div class="hero-art" aria-hidden="true">
+      <div class="sun"></div>
+      <svg viewBox="0 0 400 160" preserveAspectRatio="none"><path d="M0 160 L0 112 C40 104 62 64 96 60 C122 57 128 18 152 16 C170 15 178 62 202 76 C232 94 262 72 292 82 C330 96 362 112 400 104 L400 160Z" fill="#7C2D12" opacity=".55"/><path d="M0 160 L0 130 C60 120 120 134 200 126 C280 118 340 132 400 124 L400 160Z" fill="#164E63"/></svg>
+      <h1>Bora pro Rio</h1>
+    </div>
+    <p class="lead">Ninguém precisa conhecer o Rio. A gente te mostra um lugar por vez, com foto, preço e tempo. Tu só diz se quer ir.</p>
+    <ol class="steps">
+      <li><span>Vê o lugar e decide: <b>Quero ir</b> ou <b>Pular</b>.</span></li>
+      <li><span>Leva uns 3 minutos pra passar por todos.</span></li>
+      <li><span>O <b>Ranking</b> mostra o que a galera mais quer fazer.</span></li>
+    </ol>
+    <form class="namebox" id="nameForm" autocomplete="off" novalidate>
+      <label for="nameInput">Como a galera te chama?</label>
+      <input id="nameInput" maxlength="30" placeholder="Teu nome ou apelido">
+      <p class="err" id="nameErr" role="alert" hidden></p>
+      <button class="btn block" type="submit">Começar <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+    </form>
+  </section>
+
+  <section class="view" id="v-discover" hidden>
+    <div class="progress">
+      <div class="lbl"><span id="progLbl">Carregando…</span><span id="progYes"></span></div>
+      <div class="bar" aria-hidden="true"><span id="progBar" style="width:0%"></span></div>
+    </div>
+    <div class="filters" id="dFilters" role="toolbar" aria-label="Escolher tipo"></div>
+    <div id="dCard"></div>
+  </section>
+
+  <section class="view" id="v-ranking" hidden>
+    <div class="sec-head">
+      <h2>O que a galera quer</h2>
+      <p id="rankSub"></p>
+    </div>
+    <ol class="rank" id="rankList"></ol>
+    <h3 class="people-h" id="peopleH" hidden>Quem já votou</h3>
+    <div class="people" id="people"></div>
+  </section>
+
+  <section class="view" id="v-all" hidden>
+    <div class="search">
+      <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+      <label class="sr" for="q">Buscar lugar</label>
+      <input id="q" type="search" placeholder="Buscar lugar, bairro ou tipo">
+    </div>
+    <div class="filters" id="aFilters" role="toolbar" aria-label="Filtrar por tipo"></div>
+    <div class="grid" id="allList"></div>
+  </section>
+
+  <section class="view" id="v-add" hidden>
+    <div class="sec-head">
+      <h2>Sugerir um lugar</h2>
+      <p>Viu no Instagram ou alguém indicou? Coloca aqui que aparece pra todo mundo.</p>
+    </div>
+    <form class="add" id="addForm" autocomplete="off" novalidate>
+      <label for="fName">Nome do lugar
+        <input id="fName" maxlength="80" placeholder="Ex.: Bar do Mineiro">
+      </label>
+      <label for="fCat">Tipo
+        <select id="fCat"></select>
+      </label>
+      <label for="fArea">Bairro ou região <span class="hint">opcional</span>
+        <input id="fArea" maxlength="60" placeholder="Ex.: Santa Teresa">
+      </label>
+      <label for="fNote">Por que ir? <span class="hint">opcional</span>
+        <textarea id="fNote" maxlength="280" placeholder="Ex.: pastel de feijão e samba no sábado"></textarea>
+      </label>
+      <label for="fLink">Link <span class="hint">opcional: Instagram, Maps ou site</span>
+        <input id="fLink" type="url" maxlength="300" placeholder="https://">
+      </label>
+      <p class="err" id="fMsg" role="alert" hidden></p>
+      <button class="btn block" type="submit" id="fSubmit">Adicionar à lista</button>
+    </form>
+  </section>
+</main>
+
+<nav class="tabs" id="tabs" aria-label="Seções" hidden>
+  <div class="wrap">
+    <button type="button" data-tab="discover"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></svg>Descobrir<span class="badge" id="leftBadge" hidden></span></button>
+    <button type="button" data-tab="ranking"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg>Ranking</button>
+    <button type="button" data-tab="all"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>Todos</button>
+    <button type="button" data-tab="add"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>Sugerir</button>
+  </div>
+</nav>
+<div class="toast" id="toast" role="status" hidden></div>
 
 <script src="config.js"></script>
 <script>
 const CATS = [
-  {id:"praia", label:"Praias"},
-  {id:"mirante", label:"Trilhas e mirantes"},
-  {id:"postal", label:"Cartões-postais"},
-  {id:"cultura", label:"Museus e cultura"},
-  {id:"comida", label:"Comer e beber"},
-  {id:"noite", label:"Noite e samba"},
-  {id:"passeio", label:"Passeios e bate-volta"},
+  {id:"praia",   label:"Praias",             color:"#0E7490", icon:'<path d="M2 18c3-2 6-2 10 0s7 2 10 0"/><path d="M12 14V4"/><path d="M12 4c-4 0-7 3-7 6h14c0-3-3-6-7-6z"/>'},
+  {id:"mirante", label:"Trilhas e mirantes", color:"#15803D", icon:'<path d="m3 20 6-11 4 6 3-4 5 9z"/><circle cx="17" cy="6" r="2"/>'},
+  {id:"postal",  label:"Cartões-postais",    color:"#C2410C", icon:'<rect x="3" y="6" width="18" height="13" rx="2"/><circle cx="12" cy="12.5" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/>'},
+  {id:"cultura", label:"Museus",             color:"#7C3AED", icon:'<path d="M3 21h18M5 21V10M19 21V10M9 21V10M15 21V10M2 10l10-6 10 6z"/>'},
+  {id:"comida",  label:"Comer e beber",      color:"#B45309", icon:'<path d="M7 3v8a2 2 0 0 0 2 2v8M11 3v8a2 2 0 0 1-2 2M17 3c-2 2-2 6 0 9v9"/>'},
+  {id:"noite",   label:"Noite e samba",      color:"#BE185D", icon:'<path d="M20 14.5A8 8 0 1 1 9.5 4 6.5 6.5 0 0 0 20 14.5z"/>'},
+  {id:"passeio", label:"Bate-volta",         color:"#1D4ED8", icon:'<path d="M3 17h18l-2 4H5z"/><path d="M12 3v14M12 3l7 11H12"/>'},
 ];
-const catLabel = id => (CATS.find(c => c.id === id) || {label:"Outros"}).label;
-const AV_COLORS = ["#0E5A73","#2F7D4F","#B45309","#7C3AED","#BE185D","#0F766E","#9A3412","#1D4ED8"];
+const CAT = Object.fromEntries(CATS.map(c=>[c.id,c]));
+const catOf = id => CAT[id] || {id, label:"Outros", color:"#57534E", icon:'<circle cx="12" cy="10" r="3"/><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/>'};
+const COST = ["Grátis","Barato · até R$ 50","Médio · R$ 50 a 150","Caro · R$ 150+"];
+const AV_COLORS = ["#C2410C","#0E7490","#15803D","#7C3AED","#BE185D","#B45309","#1D4ED8","#0F766E"];
+const ICON = {
+  pin:'<path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/>',
+  clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+  wallet:'<rect x="3" y="6" width="18" height="13" rx="2"/><path d="M16 12h2M3 9h18"/>',
+  star:'<path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/>',
+  heart:'<path d="M12 20s-8-4.7-8-10.5A4.5 4.5 0 0 1 12 6a4.5 4.5 0 0 1 8 3.5C20 15.3 12 20 12 20z"/>',
+  x:'<path d="M6 6l12 12M18 6 6 18"/>',
+  undo:'<path d="M9 14 4 9l5-5"/><path d="M4 9h10a6 6 0 0 1 0 12h-3"/>',
+  map:'<path d="m9 4-6 2v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14M15 6v14"/>',
+  link:'<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>',
+  party:'<path d="M4 20 9 7l8 8z"/><path d="M14 4v2M19 9h2M17 6l1.5-1.5M12 8c1-1 1-3 0-4"/>',
+  alert:'<path d="M12 3 2 20h20z"/><path d="M12 10v4M12 17h.01"/>',
+};
+const svg = p => `<svg class="i" viewBox="0 0 24 24" aria-hidden="true">${p}</svg>`;
 const CFG = window.BORA_CONFIG || {};
 
-const S = {me:loadMe(), seed:[], seedById:{}, places:[], votes:{}, cat:"all", q:"", sort:"votos", loaded:false, confirmDel:null, busy:new Set(), lastRaw:""};
+const store = {
+  get(k,d){ try{ const v=localStorage.getItem("bora."+k); return v==null?d:JSON.parse(v); }catch{ return d; } },
+  set(k,v){ try{ localStorage.setItem("bora."+k, JSON.stringify(v)); }catch{} },
+};
+function newId(){ return crypto.randomUUID ? crypto.randomUUID() : (Date.now().toString(36)+Math.random().toString(36).slice(2)); }
+
+const S = {
+  me: store.get("me", null) || {id:newId(), name:""},
+  seen: store.get("seen", {}),       // id -> "skip" | "yes" (fica só neste navegador)
+  history: [],                        // pra "Voltar" no Descobrir
+  seed: [], seedById: {}, places: [], votes: {},
+  online: false, loaded: false, busy: new Set(), lastRaw: "", renaming: false,
+  tab: store.get("tab", "discover"), dCat: "all", aCat: "all", q: "", confirmDel: null,
+};
+if (!S.me.id) S.me.id = newId();
 
 const $ = id => document.getElementById(id);
 const norm = s => (s||"").toString().normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase().trim();
-function el(tag, attrs={}, ...kids){
-  const e = document.createElement(tag);
-  for (const [k,v] of Object.entries(attrs)){
-    if (v == null || v === false) continue;
-    if (k === "class") e.className = v;
-    else if (k.startsWith("on")) e.addEventListener(k.slice(2), v);
-    else e.setAttribute(k, v === true ? "" : v);
-  }
-  for (const k of kids.flat()) if (k != null && k !== false) e.append(k.nodeType ? k : document.createTextNode(k));
-  return e;
-}
-let toastT;
-function toast(msg){ const t=$("toast"); t.textContent=msg; t.hidden=false; clearTimeout(toastT); toastT=setTimeout(()=>t.hidden=true,2600); }
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function initials(n){ const p=(n||"?").trim().split(/\s+/); return ((p[0]||"?")[0]+(p.length>1?p[p.length-1][0]:"")).toUpperCase(); }
+function colorFor(id){ let h=0; for (const c of String(id)) h=(h*31+c.charCodeAt(0))>>>0; return AV_COLORS[h%AV_COLORS.length]; }
+const avatar = u => `<span class="av" style="background:${colorFor(u.id)}" aria-hidden="true">${esc(initials(u.name))}</span>`;
+const shown = u => u.id===S.me.id ? "você" : (u.name||"alguém");
+function safeUrl(u){ try{ const x=new URL(u); return x.protocol==="https:"||x.protocol==="http:"; }catch{ return false; } }
+let toastT; function toast(m){ const t=$("toast"); t.textContent=m; t.hidden=false; clearTimeout(toastT); toastT=setTimeout(()=>t.hidden=true,2600); }
 
-// ---- identidade (fica só neste navegador) ----
-function loadMe(){
-  let me=null;
-  try{ me=JSON.parse(localStorage.getItem("bora.me")||"null"); }catch{}
-  if (!me || !me.id) me={id:(crypto.randomUUID?crypto.randomUUID():String(Math.random()).slice(2)+Date.now()), name:""};
-  return me;
+/* ---------- fotos da Wikipédia, carregadas sob demanda ---------- */
+const photoCache = store.get("photos", {});
+const photoWait = {};
+function photoFor(title){
+  if (title in photoCache) return Promise.resolve(photoCache[title]);
+  if (photoWait[title]) return photoWait[title];
+  return photoWait[title] = fetch("https://pt.wikipedia.org/api/rest_v1/page/summary/"+encodeURIComponent(title.replace(/ /g,"_")))
+    .then(r => r.ok ? r.json() : null)
+    .then(j => {
+      let src = j && j.thumbnail && j.thumbnail.source;
+      if (src) src = src.replace(/\/\d+px-/, "/960px-");
+      const v = src ? {src, page: j.content_urls && j.content_urls.desktop && j.content_urls.desktop.page} : null;
+      photoCache[title] = v; store.set("photos", photoCache); return v;
+    }).catch(() => null);
 }
-function saveMe(){ try{ localStorage.setItem("bora.me", JSON.stringify(S.me)); }catch{} }
-function renderMe(){
-  const f=$("meForm");
-  f.classList.remove("nudge");
-  if (S.me.name){
-    $("meHi").textContent="Oi, "+S.me.name+"!";
-    $("meName").hidden=true; $("meBtn").textContent="Trocar nome"; $("meBtn").className="btn ghost";
-  } else {
-    $("meHi").textContent="Como a galera te chama?";
-    $("meName").hidden=false; $("meBtn").textContent="Entrar"; $("meBtn").className="btn";
-  }
+function phHTML(p, badges){
+  const c = catOf(p.category);
+  return `<div class="ph" data-wiki="${esc(p.wiki||"")}" style="background:linear-gradient(150deg,${c.color},color-mix(in srgb,${c.color} 50%,#000))">
+    <div class="fallback">${svg(c.icon)}</div>
+    ${badges ? `<div class="badges"><span class="pill">${svg(c.icon)}${esc(c.label)}</span>${p.must?`<span class="pill must">${svg(ICON.star)}Imperdível</span>`:""}</div>` : ""}
+  </div>`;
 }
-function needName(){
-  if (S.me.name) return false;
-  const f=$("meForm"); f.classList.add("nudge");
-  f.scrollIntoView({behavior:"smooth",block:"center"});
-  setTimeout(()=>$("meName").focus({preventScroll:true}),300);
-  toast("Coloca teu nome primeiro, pra galera saber quem votou");
-  return true;
+const io = "IntersectionObserver" in window ? new IntersectionObserver(es => { for (const e of es) if (e.isIntersecting){ io.unobserve(e.target); loadPhoto(e.target); } }, {rootMargin:"300px"}) : null;
+function hydratePhotos(root){
+  root.querySelectorAll(".ph[data-wiki]:not([data-done])").forEach(el => { el.dataset.done="1"; if (el.dataset.wiki) io ? io.observe(el) : loadPhoto(el); });
 }
-$("meForm").addEventListener("submit", async ev=>{
-  ev.preventDefault();
-  if (S.me.name && $("meName").hidden){ $("meName").hidden=false; $("meName").value=S.me.name; $("meBtn").textContent="Salvar"; $("meBtn").className="btn"; $("meName").focus(); return; }
-  const n=$("meName").value.trim().slice(0,30);
-  if (!n){ $("meName").focus(); return; }
-  const changed = S.me.name && S.me.name!==n;
-  S.me.name=n; saveMe(); renderMe(); render();
-  if (changed){
-    try{ await api("votes?voter_id=eq."+encodeURIComponent(S.me.id),{method:"PATCH",body:{voter_name:n}}); refresh(); }catch{}
-  }
-});
+function loadPhoto(el){
+  photoFor(el.dataset.wiki).then(v => {
+    if (!v) return;
+    const img = new Image(); img.alt = ""; img.decoding = "async";
+    img.onload = () => { img.classList.add("on"); el.querySelector(".fallback")?.remove(); };
+    img.src = v.src; el.prepend(img);
+    if (v.page && el.querySelector(".badges")){
+      const a = document.createElement("a"); a.className="credit"; a.href=v.page; a.target="_blank"; a.rel="noopener"; a.textContent="Foto: Wikipédia"; el.append(a);
+    }
+  });
+}
 
-// ---- Supabase (REST) ----
+/* ---------- Supabase (REST) ---------- */
 async function api(path, {method="GET", body, prefer}={}){
-  const headers={apikey:CFG.supabaseKey};
-  if (CFG.supabaseKey.startsWith("eyJ")) headers.Authorization="Bearer "+CFG.supabaseKey; // chave antiga (JWT)
-  if (body) headers["Content-Type"]="application/json";
-  if (prefer) headers.Prefer=prefer;
-  const r=await fetch(CFG.supabaseUrl.replace(/\/$/,"")+"/rest/v1/"+path,{method,headers,body:body?JSON.stringify(body):undefined});
-  if (!r.ok) throw new Error(r.status+" "+(await r.text()));
-  const t=await r.text(); return t?JSON.parse(t):null;
+  const headers = {apikey: CFG.supabaseKey};
+  if (String(CFG.supabaseKey).startsWith("eyJ")) headers.Authorization = "Bearer "+CFG.supabaseKey;
+  if (body) headers["Content-Type"] = "application/json";
+  if (prefer) headers.Prefer = prefer;
+  const ctl = new AbortController(); const t = setTimeout(()=>ctl.abort(), 12000);
+  try{
+    const r = await fetch(CFG.supabaseUrl.replace(/\/$/,"")+"/rest/v1/"+path, {method, headers, body: body?JSON.stringify(body):undefined, signal: ctl.signal});
+    if (!r.ok) throw new Error(r.status+" "+(await r.text()));
+    const txt = await r.text(); return txt ? JSON.parse(txt) : null;
+  } finally { clearTimeout(t); }
+}
+const fromSeed = sd => ({id:sd.id, name:sd.name, category:sd.category, area:sd.area, note:sd.note, link:sd.link||"", added_by:"lista", added_by_name:"", created_at:""});
+function decorate(p){
+  const sd = p.added_by==="lista" && S.seedById[p.id];
+  if (sd) return {...p, name:sd.name, category:sd.category, area:sd.area, note:sd.note, wiki:sd.wiki, region:sd.region, time:sd.time, cost:sd.cost, must:sd.must, maps:sd.maps, order:sd.createdAt};
+  return {...p, category: p.category==="boteco" ? "comida" : p.category, order: 9e15 + (Date.parse(p.created_at)||0)};
 }
 async function refresh(){
+  if (!CFG.supabaseUrl || String(CFG.supabaseUrl).includes("COLE_AQUI")) return offline("Falta configurar o banco no config.js.");
   try{
-    const [places,votes]=await Promise.all([
+    const [places, votes] = await Promise.all([
       api("places?select=id,name,category,area,note,link,added_by,added_by_name,created_at&limit=2000"),
       api("votes?select=place_id,voter_id,voter_name&limit=10000")]);
-    const raw=JSON.stringify([places,votes]);
-    $("notice").hidden=true;
-    if (raw===S.lastRaw && S.loaded) return;
-    S.lastRaw=raw;
-    // lugares da lista inicial que saíram do places-seed.json ficam escondidos
-    S.places=places
-      .filter(p=>p.added_by!=="lista" || !S.seed.length || S.seedById[p.id])
-      .map(p=>{
-        const sd=p.added_by==="lista" && S.seedById[p.id];
-        if (sd) return {...p, name:sd.name, category:sd.category, area:sd.area, note:sd.note};
-        return p.category==="boteco" ? {...p,category:"comida"} : p;
-      });
-    const v={}; for (const x of votes){ (v[x.place_id] ||= []).push({id:x.voter_id,name:x.voter_name}); }
-    // mantém votos que eu acabei de dar/tirar e o servidor ainda não confirmou
-    for (const pid of S.busy){ const mine=(S.votes[pid]||[]).some(u=>u.id===S.me.id); const list=(v[pid]||[]).filter(u=>u.id!==S.me.id); if (mine) list.push({id:S.me.id,name:S.me.name}); v[pid]=list; }
-    S.votes=v; S.loaded=true; render();
+    const raw = JSON.stringify([places, votes]);
+    const was = S.online; S.online = true; $("notice").hidden = true;
+    if (raw === S.lastRaw && was) return;
+    S.lastRaw = raw;
+    S.places = places.filter(p => p.added_by!=="lista" || !S.seed.length || S.seedById[p.id]).map(decorate);
+    const v = {};
+    for (const x of votes) (v[x.place_id] ||= []).push({id:x.voter_id, name:x.voter_name});
+    for (const pid of S.busy){ const mine=(S.votes[pid]||[]).some(u=>u.id===S.me.id); const l=(v[pid]||[]).filter(u=>u.id!==S.me.id); if (mine) l.push({id:S.me.id,name:S.me.name}); v[pid]=l; }
+    S.votes = v; S.loaded = true;
+    for (const [pid, us] of Object.entries(v)) if (us.some(u=>u.id===S.me.id) && !S.seen[pid]) S.seen[pid] = "yes";
+    render();
     seedMissing();
   }catch(e){
-    S.loaded=true;
-    const n=$("notice"); n.hidden=false;
-    n.textContent = /PGRST205|42P01|404/.test(String(e.message))
-      ? "O banco ainda não foi criado. Rode o arquivo supabase.sql no SQL Editor do Supabase."
-      : "Não consegui carregar a lista. Confere a internet e recarrega a página.";
-    render();
+    offline(/PGRST205|42P01/.test(String(e.message))
+      ? "O banco ainda não foi criado. Rode o supabase.sql no SQL Editor do Supabase."
+      : "Os votos estão fora do ar agora. Dá pra ver os lugares, mas pra votar tem que esperar voltar.");
   }
 }
-// Coloca no banco os lugares da lista inicial que ainda não estão lá (não duplica).
-let seeded=false;
-async function seedMissing(){
-  if (seeded) return; seeded=true;
-  try{
-    const seed=S.seed;
-    const have=new Set(S.places.map(p=>p.id));
-    const rows=seed.filter(p=>!have.has(p.id)).map(p=>({id:p.id,name:p.name,category:p.category,area:p.area||"",note:p.note||"",link:p.link||"",added_by:"lista"}));
-    if (!rows.length) return;
-    await api("places?on_conflict=id",{method:"POST",body:rows,prefer:"resolution=ignore-duplicates,return=minimal"});
-    S.lastRaw=""; refresh();
-  }catch{}
-}
-
-// ---- render ----
-function votersOf(pid){ return S.votes[pid]||[]; }
-function mine(pid){ return votersOf(pid).some(u=>u.id===S.me.id); }
-function initials(name){ const p=(name||"?").trim().split(/\s+/); return ((p[0]||"?")[0]+(p.length>1?p[p.length-1][0]:"")).toUpperCase(); }
-function colorFor(id){ let h=0; for (const c of id) h=(h*31+c.charCodeAt(0))>>>0; return AV_COLORS[h%AV_COLORS.length]; }
-function shownName(u){ return u.id===S.me.id ? "Você" : (u.name||"Alguém"); }
-function safeUrl(u){ try{ const x=new URL(u); return x.protocol==="https:"||x.protocol==="http:"; }catch{ return false; } }
-
-function renderChips(){
-  const box=$("chips"); box.textContent="";
-  const count = id => id==="all" ? S.places.length : S.places.filter(p=>p.category===id).length;
-  const mk = (id,label,n) => el("button",{class:"chip",type:"button","aria-pressed":String(S.cat===id),onclick:()=>{S.cat=id;render();}},label,el("span",{class:"n"},String(n)));
-  box.append(mk("all","Tudo",count("all")));
-  box.append(mk("mine","Meus votos",S.places.filter(p=>mine(p.id)).length));
-  for (const c of CATS) box.append(mk(c.id,c.label,count(c.id)));
-}
-function renderStats(){
-  const ids=new Set(); let votes=0;
-  for (const p of S.places) for (const u of votersOf(p.id)){ ids.add(u.id); votes++; }
-  const st=$("stats"); st.textContent="";
-  st.append(el("span",{},el("b",{},String(S.places.length)),"lugares"),
-            el("span",{},el("b",{},String(votes)),"votos"),
-            el("span",{},el("b",{},String(ids.size)),ids.size===1?"pessoa votou":"pessoas votaram"));
-}
-function card(p){
-  const vs=votersOf(p.id), on=mine(p.id);
-  const vote=el("button",{class:"vote",type:"button","aria-pressed":String(on),
-      title:on?"Tirar meu voto":"Quero ir","aria-label":(on?"Tirar voto de ":"Quero ir: ")+p.name,
-      onclick:()=>toggleVote(p.id)},
-    el("span",{class:"c"},String(vs.length)), el("span",{class:"l"},on?"Vou!":"Quero ir"));
-  const sd=S.seedById[p.id];
-  const q=encodeURIComponent(sd && "maps" in sd ? sd.maps : [p.name,p.area,"Rio de Janeiro"].filter(Boolean).join(", "));
-  const noMap = sd && sd.category==="comida" && !sd.maps || (sd && sd.name==="Baile funk");
-  const links=el("div",{class:"links"},
-    noMap?null:el("a",{href:"https://www.google.com/maps/search/?api=1&query="+q,target:"_blank",rel:"noopener"},"Mapa"),
-    safeUrl(p.link)?el("a",{href:p.link,target:"_blank",rel:"noopener"},"Link"):null);
-  if (p.added_by && p.added_by===S.me.id){
-    const armed=S.confirmDel===p.id;
-    links.append(el("button",{class:"linkbtn danger",type:"button",onclick:()=>armed?removePlace(p.id):(S.confirmDel=p.id,render())},armed?"Confirmar remoção":"Remover"));
-    if (armed) links.append(el("button",{class:"linkbtn",type:"button",onclick:()=>{S.confirmDel=null;render();}},"Cancelar"));
-  }
-  const who=el("div",{class:"who"});
-  if (vs.length){
-    const sorted=[...vs].sort((a,b)=>a.id===S.me.id?-1:b.id===S.me.id?1:0);
-    who.append(el("span",{class:"avs"},sorted.slice(0,5).map(u=>el("span",{class:"av",style:"background:"+colorFor(u.id),title:shownName(u)},initials(u.name||"?")))));
-    const names=sorted.map(shownName);
-    who.append(el("span",{},names.length<=2?names.join(" e "):names.slice(0,2).join(", ")+" +"+(names.length-2)));
-  } else who.append("Ninguém ainda");
-  const added = p.added_by && p.added_by!=="lista" ? "sugerido por "+(p.added_by===S.me.id?"você":(p.added_by_name||"alguém")) : null;
-  return el("article",{class:"card"+(on?" mine":"")},
-    el("div",{class:"top"},
-      el("div",{style:"display:grid;gap:4px;min-width:0"},
-        el("h3",{},p.name),
-        el("div",{class:"meta"},el("span",{class:"tag"},catLabel(p.category)),p.area?el("span",{},p.area):null,added?el("span",{},added):null)),
-      vote),
-    p.note?el("p",{class:"note"},p.note):null,
-    el("div",{class:"foot"},who,links));
-}
-function render(){
-  renderChips(); renderStats();
-  const list=$("list"); list.textContent="";
-  if (!S.loaded){ list.append(el("p",{class:"empty"},"Carregando a lista…")); return; }
-  const q=norm(S.q);
-  let items=S.places.filter(p=>
-    (S.cat==="all" || (S.cat==="mine" ? mine(p.id) : p.category===S.cat)) &&
-    (!q || norm(p.name+" "+(p.area||"")+" "+(p.note||"")+" "+catLabel(p.category)).includes(q)));
-  const cnt={}; for (const p of items) cnt[p.id]=votersOf(p.id).length;
-  if (S.sort==="votos") items.sort((a,b)=>cnt[b.id]-cnt[a.id] || a.name.localeCompare(b.name,"pt"));
-  else if (S.sort==="novos") items.sort((a,b)=>(b.created_at||"").localeCompare(a.created_at||""));
-  else items.sort((a,b)=>a.name.localeCompare(b.name,"pt"));
-  if (!items.length){ list.append(el("p",{class:"empty"}, S.cat==="mine"?"Você ainda não marcou nenhum lugar. Toque em Quero ir nos que curtir.":"Nada encontrado. Que tal adicionar esse lugar lá embaixo?")); return; }
-  list.append(...items.map(card));
-}
-
-// ---- ações ----
-async function toggleVote(pid){
-  if (needName() || S.busy.has(pid)) return;
-  const on=mine(pid);
-  S.busy.add(pid);
-  S.votes[pid]=on ? votersOf(pid).filter(u=>u.id!==S.me.id) : [...votersOf(pid),{id:S.me.id,name:S.me.name}];
+function offline(msg){
+  S.online = false;
+  if (!S.places.length && S.seed.length) S.places = S.seed.map(fromSeed).map(decorate);
+  if (S.seed.length) S.loaded = true;
+  const n = $("notice"); n.innerHTML = svg(ICON.alert)+"<span>"+esc(msg)+"</span>"; n.hidden = false;
   render();
+}
+let seeded = false;
+async function seedMissing(){
+  if (seeded || !S.seed.length) return; seeded = true;
+  const have = new Set(S.places.map(p=>p.id));
+  const rows = S.seed.filter(p=>!have.has(p.id)).map(p=>({id:p.id,name:p.name,category:p.category,area:p.area||"",note:p.note||"",link:p.link||"",added_by:"lista"}));
+  if (!rows.length) return;
+  try{ await api("places?on_conflict=id",{method:"POST",body:rows,prefer:"resolution=ignore-duplicates,return=minimal"}); S.lastRaw=""; refresh(); }catch{}
+}
+
+/* ---------- votos ---------- */
+const votersOf = pid => S.votes[pid] || [];
+const iWant = pid => votersOf(pid).some(u=>u.id===S.me.id);
+async function setVote(pid, want){
+  if (!S.online){ toast("Os votos estão fora do ar agora. Tenta daqui a pouco."); return false; }
+  if (iWant(pid) === want) return true;
+  S.busy.add(pid);
+  S.votes[pid] = want ? [...votersOf(pid), {id:S.me.id,name:S.me.name}] : votersOf(pid).filter(u=>u.id!==S.me.id);
   try{
-    if (on) await api("votes?place_id=eq."+encodeURIComponent(pid)+"&voter_id=eq."+encodeURIComponent(S.me.id),{method:"DELETE"});
-    else await api("votes?on_conflict=place_id,voter_id",{method:"POST",body:{place_id:pid,voter_id:S.me.id,voter_name:S.me.name},prefer:"resolution=ignore-duplicates,return=minimal"});
-  }catch(e){
-    S.votes[pid]=on ? [...votersOf(pid),{id:S.me.id,name:S.me.name}] : votersOf(pid).filter(u=>u.id!==S.me.id);
-    toast("Não deu pra salvar teu voto. Tenta de novo.");
-  }finally{ S.busy.delete(pid); render(); }
+    if (want) await api("votes?on_conflict=place_id,voter_id",{method:"POST",body:{place_id:pid,voter_id:S.me.id,voter_name:S.me.name},prefer:"resolution=ignore-duplicates,return=minimal"});
+    else await api("votes?place_id=eq."+encodeURIComponent(pid)+"&voter_id=eq."+encodeURIComponent(S.me.id),{method:"DELETE"});
+    return true;
+  }catch{
+    S.votes[pid] = want ? votersOf(pid).filter(u=>u.id!==S.me.id) : [...votersOf(pid), {id:S.me.id,name:S.me.name}];
+    toast("Não deu pra salvar. Confere a internet e tenta de novo.");
+    return false;
+  }finally{ S.busy.delete(pid); }
 }
-async function removePlace(pid){
-  S.confirmDel=null;
-  try{ await api("places?id=eq."+encodeURIComponent(pid)+"&added_by=eq."+encodeURIComponent(S.me.id),{method:"DELETE"}); toast("Lugar removido"); S.lastRaw=""; refresh(); }
-  catch{ toast("Não deu pra remover agora. Tenta de novo."); render(); }
+
+/* ---------- navegação ---------- */
+function go(tab){ S.tab = tab; store.set("tab", tab); render(); window.scrollTo({top:0}); }
+$("tabs").addEventListener("click", e => { const b = e.target.closest("button[data-tab]"); if (b) go(b.dataset.tab); });
+$("brand").addEventListener("click", e => { e.preventDefault(); if (S.me.name) go("discover"); });
+
+$("nameForm").addEventListener("submit", async e => {
+  e.preventDefault();
+  const n = $("nameInput").value.trim().slice(0,30);
+  if (!n){ $("nameErr").textContent = "Coloca um nome pra galera saber quem votou."; $("nameErr").hidden = false; $("nameInput").focus(); return; }
+  const changed = S.me.name && S.me.name !== n;
+  S.me.name = n; store.set("me", S.me); $("nameErr").hidden = true; S.renaming = false;
+  if (changed && S.online){ try{ await api("votes?voter_id=eq."+encodeURIComponent(S.me.id),{method:"PATCH",body:{voter_name:n}}); S.lastRaw=""; refresh(); }catch{} }
+  go(S.tab);
+});
+$("meChip").addEventListener("click", () => { S.renaming = true; $("nameInput").value = S.me.name; render(); $("nameInput").focus(); });
+
+/* ---------- telas ---------- */
+function counts(list){ const c={all:list.length}; for (const p of list) c[p.category]=(c[p.category]||0)+1; return c; }
+function filterChips(box, current, c, onPick){
+  box.innerHTML = [["all","Tudo"], ...CATS.map(x=>[x.id,x.label])]
+    .filter(([id]) => id==="all" || c[id] || id===current)
+    .map(([id,l]) => `<button type="button" class="fchip" data-c="${id}" aria-pressed="${current===id}">${esc(l)} <span class="n">${c[id]||0}</span></button>`).join("");
+  box.onclick = e => { const b = e.target.closest("[data-c]"); if (b) onPick(b.dataset.c); };
 }
-$("addForm").addEventListener("submit", async ev=>{
+function factsHTML(p){
+  const f = [];
+  if (p.region || p.area) f.push(`<span class="fact">${svg(ICON.pin)}${esc(p.region || p.area)}</span>`);
+  if (p.time) f.push(`<span class="fact">${svg(ICON.clock)}${esc(p.time)}</span>`);
+  if (p.cost != null) f.push(`<span class="fact">${svg(ICON.wallet)}${esc(COST[p.cost])}</span>`);
+  return f.length ? `<div class="facts">${f.join("")}</div>` : "";
+}
+function whoHTML(pid){
+  const vs = [...votersOf(pid)].sort((a,b)=>a.id===S.me.id?-1:b.id===S.me.id?1:0);
+  if (!vs.length) return `<div class="who">Ninguém marcou ainda. Seja o primeiro!</div>`;
+  const names = vs.map(shown);
+  let txt = names.length<=2 ? names.join(" e ") : names.slice(0,2).join(", ")+" e mais "+(names.length-2);
+  txt = txt.charAt(0).toUpperCase()+txt.slice(1) + (vs.length===1 ? (vs[0].id===S.me.id ? " quer ir" : " quer ir") : " querem ir");
+  return `<div class="who"><span class="avs">${vs.slice(0,4).map(avatar).join("")}</span><span>${esc(txt)}</span></div>`;
+}
+const mapsUrl = p => "https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(p.maps || [p.name, p.area, "Rio de Janeiro"].filter(Boolean).join(", "));
+
+function discoverQueue(){
+  // imperdíveis primeiro, o resto alternando os tipos pra não vir 9 praias seguidas
+  const list = S.places.filter(p => S.dCat==="all" || p.category===S.dCat).sort((a,b)=>a.order-b.order);
+  const by = {}; for (const p of list.filter(p=>!p.must)) (by[p.category] ||= []).push(p);
+  const mixed = [], keys = Object.keys(by);
+  while (keys.some(k=>by[k].length)) for (const k of keys) if (by[k].length) mixed.push(by[k].shift());
+  return [...list.filter(p=>p.must), ...mixed];
+}
+function renderDiscover(){
+  const box = $("dCard");
+  const unseen = S.places.filter(p=>!S.seen[p.id]);
+  filterChips($("dFilters"), S.dCat, counts(unseen), id => { S.dCat = id; render(); });
+  if (!S.loaded){ box.dataset.key=""; box.innerHTML = `<div class="empty"><p>Carregando os lugares…</p></div>`; return; }
+  const all = discoverQueue();
+  const left = all.filter(p => !S.seen[p.id]);
+  const yes = S.places.filter(p => iWant(p.id)).length;
+  $("progLbl").textContent = left.length ? `Lugar ${all.length-left.length+1} de ${all.length}` : `Tu viu os ${all.length}`;
+  $("progYes").textContent = `${yes} quero ir`;
+  $("progBar").style.width = (all.length ? (all.length-left.length)/all.length*100 : 0) + "%";
+
+  if (!left.length){
+    box.dataset.key = "";
+    const skipped = Object.values(S.seen).filter(v=>v==="skip").length;
+    box.innerHTML = `<div class="done"><div class="big">${svg(ICON.party)}</div>
+      <h2>${S.dCat==="all" ? "Tu viu todos os lugares!" : "Acabou esse tipo!"}</h2>
+      <p>${yes ? `Tu marcou ${yes} ${yes===1?"lugar":"lugares"}. Agora vê o que a galera também quer.` : "Tu pulou tudo. Quer dar mais uma olhada?"}</p>
+      <div class="row" style="justify-content:center">
+        <button class="btn" type="button" data-go="ranking">Ver o ranking</button>
+        ${S.dCat!=="all" ? `<button class="btn ghost" type="button" data-cat="all">Ver outros tipos</button>`
+          : skipped ? `<button class="btn ghost" type="button" data-reset="1">Rever os que pulei</button>` : ""}
+      </div></div>`;
+    box.onclick = e => {
+      if (e.target.closest("[data-go]")) go("ranking");
+      else if (e.target.closest("[data-cat]")){ S.dCat = "all"; render(); }
+      else if (e.target.closest("[data-reset]")){ for (const k in S.seen) if (S.seen[k]==="skip") delete S.seen[k]; store.set("seen", S.seen); render(); }
+    };
+    return;
+  }
+  const p = left[0];
+  const key = [p.id, votersOf(p.id).map(u=>u.id).join(","), S.online, S.history.length].join("|");
+  if (box.dataset.key === key) return;   // não refaz o card à toa, pra foto não piscar
+  box.dataset.key = key;
+  box.innerHTML = `<article class="place" aria-labelledby="dTitle">
+    ${phHTML(p, true)}
+    <div class="body">
+      <h2 id="dTitle">${esc(p.name)}</h2>
+      ${factsHTML(p)}
+      ${p.note ? `<p class="why">${esc(p.note)}</p>` : ""}
+      ${whoHTML(p.id)}
+      <div class="actions">
+        <button class="btn ghost" type="button" data-act="skip">${svg(ICON.x)}Pular</button>
+        <button class="btn" type="button" data-act="yes" ${S.online?"":"disabled"}>${svg(ICON.heart)}Quero ir</button>
+      </div>
+      <div class="sub-actions">
+        <button class="linkbtn" type="button" data-act="undo" ${S.history.length?"":"hidden"}>${svg(ICON.undo)}Voltar</button>
+        <a class="linkbtn" href="${esc(mapsUrl(p))}" target="_blank" rel="noopener">${svg(ICON.map)}Ver no mapa</a>
+        ${safeUrl(p.link) ? `<a class="linkbtn" href="${esc(p.link)}" target="_blank" rel="noopener">${svg(ICON.link)}Link</a>` : ""}
+      </div>
+    </div></article>`;
+  hydratePhotos(box);
+  box.onclick = async e => {
+    const b = e.target.closest("[data-act]"); if (!b || b.disabled) return;
+    if (b.dataset.act === "undo"){
+      const last = S.history.pop(); if (!last) return;
+      delete S.seen[last.id]; store.set("seen", S.seen);
+      if (last.v === "yes") await setVote(last.id, false);
+      render(); return;
+    }
+    if (b.dataset.act === "yes"){
+      box.querySelectorAll("button").forEach(x=>x.disabled=true);
+      if (!await setVote(p.id, true)){ box.dataset.key=""; render(); return; }
+      S.seen[p.id] = "yes"; toast("Boa! Tá na tua lista.");
+    } else S.seen[p.id] = "skip";
+    S.history.push({id:p.id, v:b.dataset.act}); store.set("seen", S.seen);
+    render();
+    const top = $("dCard").getBoundingClientRect().top;
+    if (top < 0) window.scrollTo({top: window.scrollY + top - 70});
+  };
+}
+
+function renderRanking(){
+  const visible = new Set(S.places.map(p=>p.id));
+  const people = new Map();
+  for (const [pid, vs] of Object.entries(S.votes)) if (visible.has(pid)) for (const u of vs) people.set(u.id, u);
+  const total = people.size;
+  const ranked = S.places.map(p => ({p, n: votersOf(p.id).length})).filter(x=>x.n>0).sort((a,b)=>b.n-a.n || a.p.order-b.p.order);
+  $("rankSub").textContent = total
+    ? `${total} ${total===1?"pessoa votou":"pessoas votaram"}. A barra mostra quanto da galera quer ir.`
+    : `Os lugares com mais "Quero ir" aparecem aqui.`;
+  const list = $("rankList");
+  if (!ranked.length){
+    list.innerHTML = `<li><div class="empty"><p>${S.online ? "Ninguém votou ainda." : "Os votos estão fora do ar agora."}</p><button class="btn" type="button" data-go="discover">Começar a votar</button></div></li>`;
+  } else {
+    list.innerHTML = ranked.slice(0,30).map(({p,n},i) => {
+      const names = votersOf(p.id).map(shown);
+      return `<li class="item">
+        <span class="pos"><span class="sr">Posição </span>${i+1}</span>
+        <div class="thumb">${phHTML(p, false)}</div>
+        <div style="min-width:0">
+          <h3>${esc(p.name)}</h3>
+          <div class="meta">${esc(names.slice(0,3).join(", "))}${names.length>3?" e mais "+(names.length-3):""}</div>
+          <div class="meter"><div class="bar" aria-hidden="true"><span style="width:${total?Math.round(n/total*100):0}%"></span></div><b>${n} de ${total}</b></div>
+        </div></li>`;
+    }).join("");
+    hydratePhotos(list);
+  }
+  list.onclick = e => { if (e.target.closest("[data-go]")) go("discover"); };
+  $("peopleH").hidden = !total;
+  $("people").innerHTML = [...people.values()].map(u => `<span class="person">${avatar(u)}${esc(u.id===S.me.id?"Você":(u.name||"Alguém"))}</span>`).join("");
+}
+
+function renderAll(){
+  const box = $("allList");
+  const q = norm(S.q);
+  const base = S.places.filter(p => !q || norm([p.name,p.area,p.region,p.note,catOf(p.category).label].join(" ")).includes(q));
+  filterChips($("aFilters"), S.aCat, counts(base), id => { S.aCat = id; render(); });
+  if (!S.loaded){ box.innerHTML = `<div class="empty"><p>Carregando os lugares…</p></div>`; return; }
+  const items = base.filter(p => S.aCat==="all" || p.category===S.aCat)
+    .sort((a,b)=> votersOf(b.id).length - votersOf(a.id).length || a.order-b.order);
+  if (!items.length){ box.innerHTML = `<div class="empty"><p>Nada encontrado.</p><button class="btn" type="button" data-go="add">Sugerir esse lugar</button></div>`; }
+  else box.innerHTML = items.map(p => {
+    const on = iWant(p.id), n = votersOf(p.id).length;
+    const del = p.added_by && p.added_by===S.me.id;
+    return `<article class="mini${on?" mine":""}">
+      ${phHTML(p, true)}
+      <div class="body">
+        <h3>${esc(p.name)}</h3>
+        ${factsHTML(p)}
+        ${p.note ? `<p class="why">${esc(p.note)}</p>` : ""}
+        ${p.added_by && p.added_by!=="lista" ? `<div class="by">Sugerido por ${esc(p.added_by===S.me.id?"você":(p.added_by_name||"alguém"))}</div>` : ""}
+        <div class="foot">
+          <button type="button" class="vote" data-vote="${esc(p.id)}" aria-pressed="${on}" ${S.online?"":"disabled"}>${svg(ICON.heart)}${on?"Vou":"Quero ir"}<span class="c">${n?" · "+n:""}</span></button>
+          <span class="row" style="gap:12px">
+            <a class="linkbtn" href="${esc(mapsUrl(p))}" target="_blank" rel="noopener">${svg(ICON.map)}Mapa</a>
+            ${del ? `<button type="button" class="linkbtn danger" data-del="${esc(p.id)}">${S.confirmDel===p.id?"Confirmar":"Remover"}</button>` : ""}
+          </span>
+        </div>
+      </div></article>`;
+  }).join("");
+  hydratePhotos(box);
+  box.onclick = async e => {
+    if (e.target.closest("[data-go]")) return go("add");
+    const v = e.target.closest("[data-vote]");
+    if (v){
+      const id = v.dataset.vote, want = !iWant(id);
+      v.disabled = true;
+      if (await setVote(id, want)){ if (want) S.seen[id] = "yes"; else if (S.seen[id]==="yes") S.seen[id] = "skip"; store.set("seen", S.seen); }
+      render(); return;
+    }
+    const d = e.target.closest("[data-del]");
+    if (d){
+      const id = d.dataset.del;
+      if (S.confirmDel !== id){ S.confirmDel = id; render(); return; }
+      S.confirmDel = null;
+      try{ await api("places?id=eq."+encodeURIComponent(id)+"&added_by=eq."+encodeURIComponent(S.me.id),{method:"DELETE"}); toast("Lugar removido"); S.lastRaw=""; refresh(); }
+      catch{ toast("Não deu pra remover agora."); render(); }
+    }
+  };
+}
+
+function render(){
+  const needName = !S.me.name || S.renaming;
+  $("v-welcome").hidden = !needName;
+  $("tabs").hidden = needName;
+  $("meChip").hidden = needName;
+  if (S.me.name) $("meChip").innerHTML = avatar(S.me) + `<span class="n">${esc(S.me.name)}</span>`;
+  for (const t of ["discover","ranking","all","add"]){
+    $("v-"+t).hidden = needName || S.tab !== t;
+    const b = document.querySelector(`[data-tab="${t}"]`);
+    if (S.tab === t) b.setAttribute("aria-current","page"); else b.removeAttribute("aria-current");
+  }
+  const left = S.places.filter(p=>!S.seen[p.id]).length;
+  $("leftBadge").hidden = !left || S.tab==="discover"; $("leftBadge").textContent = left;
+  if (needName) return;
+  if (S.tab==="discover") renderDiscover();
+  else if (S.tab==="ranking") renderRanking();
+  else if (S.tab==="all") renderAll();
+}
+
+/* ---------- sugerir ---------- */
+for (const c of CATS) $("fCat").insertAdjacentHTML("beforeend", `<option value="${c.id}">${esc(c.label)}</option>`);
+$("addForm").addEventListener("submit", async ev => {
   ev.preventDefault();
-  const msg=$("fMsg"); msg.className="formmsg";
-  if (needName()) return;
-  const name=$("fName").value.trim();
-  if (!name){ msg.className="formmsg err"; msg.textContent="Coloca o nome do lugar."; return; }
-  const dup=S.places.find(p=>norm(p.name)===norm(name));
-  if (dup){ msg.className="formmsg err"; msg.textContent="“"+dup.name+"” já está na lista. Vota nele!"; return; }
-  const link=$("fLink").value.trim();
-  if (link && !safeUrl(link)){ msg.className="formmsg err"; msg.textContent="O link precisa começar com https://"; return; }
-  $("fSubmit").disabled=true;
+  const msg = $("fMsg"); msg.hidden = true;
+  const fail = (t, field) => { msg.textContent = t; msg.hidden = false; if (field) $(field).focus(); };
+  const name = $("fName").value.trim();
+  if (!name) return fail("Coloca o nome do lugar.", "fName");
+  const dup = S.places.find(p => norm(p.name) === norm(name));
+  if (dup) return fail("“"+dup.name+"” já está na lista. Procura em Todos e vota nele!", "fName");
+  const link = $("fLink").value.trim();
+  if (link && !safeUrl(link)) return fail("O link precisa começar com https://", "fLink");
+  if (!S.online) return fail("O banco está fora do ar agora. Tenta de novo daqui a pouco.");
+  $("fSubmit").disabled = true;
   try{
-    const [row]=await api("places",{method:"POST",prefer:"return=representation",body:{
+    const [row] = await api("places",{method:"POST",prefer:"return=representation",body:{
       name, category:$("fCat").value, area:$("fArea").value.trim(), note:$("fNote").value.trim(), link,
       added_by:S.me.id, added_by_name:S.me.name}});
-    ev.target.reset(); msg.textContent="";
+    ev.target.reset();
+    S.places.push(decorate(row));
+    if (await setVote(row.id, true)){ S.seen[row.id] = "yes"; store.set("seen", S.seen); }
     toast("“"+name+"” entrou na lista");
-    S.places.push(row); await toggleVote(row.id);
-    S.sort="novos"; $("sort").value="novos"; S.cat="all"; render();
-    window.scrollTo({top:0,behavior:"smooth"});
-  }catch(e){ msg.className="formmsg err"; msg.textContent="Não deu pra salvar. Tenta de novo em alguns segundos."; }
-  finally{ $("fSubmit").disabled=false; }
+    S.aCat = "all"; S.q = ""; $("q").value = ""; go("all");
+  }catch{ fail("Não deu pra salvar. Tenta de novo em alguns segundos."); }
+  finally{ $("fSubmit").disabled = false; }
 });
+$("q").addEventListener("input", e => { S.q = e.target.value; render(); });
 
-$("q").addEventListener("input", e=>{S.q=e.target.value; render();});
-$("sort").addEventListener("change", e=>{S.sort=e.target.value; render();});
-$("goAdd").addEventListener("click", ()=>{ $("add").scrollIntoView({behavior:"smooth"}); setTimeout(()=>$("fName").focus({preventScroll:true}),350); });
-for (const c of CATS) $("fCat").append(el("option",{value:c.id},c.label));
-
-// ---- início ----
-renderMe(); render();
-if (!CFG.supabaseUrl || !CFG.supabaseKey || CFG.supabaseUrl.includes("COLE_AQUI")){
-  S.loaded=true; const n=$("notice"); n.hidden=false;
-  n.textContent="Falta configurar o banco: preencha config.js com a URL e a chave do Supabase.";
-  render();
-} else {
-  fetch("places-seed.json",{cache:"no-cache"}).then(r=>r.json()).then(seed=>{
-    S.seed=seed; for (const p of seed) S.seedById[p.id]=p;
-  }).catch(()=>{}).finally(refresh);
-  setInterval(()=>{ if (document.visibilityState==="visible") refresh(); }, 6000);
-  document.addEventListener("visibilitychange", ()=>{ if (document.visibilityState==="visible") refresh(); });
-}
+/* ---------- início ---------- */
+render();
+fetch("places-seed.json", {cache:"no-cache"}).then(r=>r.json()).then(seed => {
+  S.seed = seed; for (const p of seed) S.seedById[p.id] = p;
+  if (!S.places.length){ S.places = seed.map(fromSeed).map(decorate); S.loaded = true; render(); }  // mostra os lugares na hora, sem esperar o banco
+}).catch(()=>{}).finally(() => {
+  refresh();
+  setInterval(() => { if (document.visibilityState==="visible") refresh(); }, 8000);
+  document.addEventListener("visibilitychange", () => { if (document.visibilityState==="visible") refresh(); });
+});
 </script>
 </body>
 </html>

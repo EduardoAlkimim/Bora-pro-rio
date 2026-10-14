@@ -7,7 +7,12 @@
   "note": "Calçadão de ondas, quiosques e mate com biscoito Globo.",
   "link": "",
   "addedBy": "lista",
-  "createdAt": 1790600000000
+  "createdAt": 1790600000000,
+  "wiki": "Praia de Copacabana",
+  "region": "Zona Sul",
+  "time": "Meio dia",
+  "cost": 0,
+  "must": true
  },
  {
   "id": "s-praia-de-ipanema-posto-9",
@@ -17,7 +22,12 @@
   "note": "A praia mais carioca. Fica pro pôr do sol e aplaude.",
   "link": "",
   "addedBy": "lista",
-  "createdAt": 1790600000001
+  "createdAt": 1790600000001,
+  "wiki": "Praia de Ipanema",
+  "region": "Zona Sul",
+  "time": "Meio dia",
+  "cost": 0,
+  "must": true
  },
  {
   "id": "s-arpoador",
@@ -27,7 +37,12 @@
   "note": "Pedra com o pôr do sol mais famoso do Rio.",
   "link": "",
   "addedBy": "lista",
-  "createdAt": 1790600000002
+  "createdAt": 1790600000002,
+  "wiki": "Arpoador",
+  "region": "Zona Sul",
+  "time": "1h no pôr do sol",
+  "cost": 0,
+  "must": true
  },
  {
   "id": "s-praia-do-leblon",
@@ -37,7 +52,12 @@
   "note": "Mais tranquila que Ipanema, boa pra altinha.",
   "link": "",
   "addedBy": "lista",
-  "createdAt": 1790600000003
+  "createdAt": 1790600000003,
+  "wiki": "Praia do Leblon",
+  "region": "Zona Sul",
+  "time": "Meio dia",
+  "cost": 0,
+  "must": false
  },
  {
   "id": "s-praia-da-barra-da-tijuca",
@@ -47,7 +67,12 @@
   "note": "Faixa enorme de areia, bom pra quem quer espaço.",
   "link": "",
   "addedBy": "lista",
-  "createdAt": 1790600000004
+  "createdAt": 1790600000004,
+  "wiki": "Praia da Barra da Tijuca",
+  "region": "Zona Oeste",
+  "time": "Meio dia",
+  "cost": 0,
+  "must": false
  },
  {
   "id": "s-praia-de-sao-conrado",
@@ -57,7 +82,12 @@
   "note": "Onde pousam as asas-deltas da Pedra Bonita.",
   "link": "",
   "addedBy": "lista",
-  "createdAt": 1790600000005
+  "createdAt": 1790600000005,
+  "wiki": "Praia de São Conrado",
+  "region": "Zona Sul",
+  "time": "Meio dia",
+  "cost": 0,
+  "must": false
  },
  {
   "id": "s-praia-vermelha",
@@ -67,7 +97,12 @@
   "note": "Pequena, ao pé do Pão de Açúcar, água calma.",
   "link": "",
   "addedBy": "lista",
-  "createdAt": 1790600000006
+  "createdAt": 1790600000006,
+  "wiki": "Praia Vermelha (Rio de Janeiro)",
+  "region": "Zona Sul",
+  "time": "2 a 3h",
+  "cost": 0,
+  "must": false
  },
  {
   "id": "s-prainha",
@@ -77,7 +112,12 @@
   "note": "Praia de surfe cercada de mata, água mais limpa.",
   "link": "",
   "addedBy": "lista",
-  "createdAt": 1790600000007
+  "createdAt": 1790600000007,
+  "wiki": "Prainha (Rio de Janeiro)",
+  "region": "Zona Oeste",
+  "time": "Dia inteiro",
+  "cost": 0,
+  "must": false
  },
  {
   "id": "s-praia-de-grumari",
@@ -87,7 +127,12 @@
   "note": "Selvagem, sem prédios. Leva comida, tem pouca estrutura.",
   "link": "",
   "addedBy": "lista",
-  "createdAt": 1790600000008
+  "createdAt": 1790600000008,
+  "wiki": "Praia de Grumari",
+  "region": "Zona Oeste",
+  "time": "Dia inteiro",
+  "cost": 0,
+  "must": false
  },
  {
   "id": "s-pao-de-acucar-bondinho",
@@ -97,7 +142,12 @@
   "note": "Bondinho em duas etapas, vista da baía e de Copacabana.",
   "link": "",
   "addedBy": "lista",
-  "createdAt": 1790600000009
+  "createdAt": 1790600000009,
+  "wiki": "Pão de Açúcar",
+  "region": "Zona Sul",
+  "time": "3h",
+  "cost": 3,
+  "must": true
  },
  {
   "id": "s-trilha-do-morro-da-urca",
@@ -107,7 +157,12 @@
   "note": "Sobe a pé até a primeira estação do bondinho, uns 40 min.",
   "link": "",
   "addedBy": "lista",
-  "createdAt": 1790600000010
+  "createdAt": 1790600000010,
+  "wiki": "Morro da Urca",
+  "region": "Zona Sul",
+  "time": "1h30, fácil",
+  "cost": 0,
+  "must": false
  },
  {
   "id": "s-pista-claudio-coutinho",
@@ -117,7 +172,12 @@
   "note": "Caminhada plana na beira do mar, com micos e vista.",
   "link": "",
   "addedBy": "lista",
-  "createdAt": 1790600000011
+  "createdAt": 1790600000011,
+  "wiki": "Pista Cláudio Coutinho",
+  "region": "Zona Sul",
+  "time": "1h, plana",
+  "cost": 0,
+  "must": false
  },
  {
   "id": "s-trilha-do-morro-dois-irmaos",
@@ -127,7 +187,12 @@
   "note": "Sobe pelo Vidigal, uma hora de trilha, vista de toda a Zona Sul.",
   "link": "",
   "addedBy": "lista",
-  "createdAt": 1790600000012
+  "createdAt": 1790600000012,
+  "wiki": "Morro Dois Irmãos",
+  "region": "Zona Sul",
+  "time": "2h30, média",
+  "cost": 0,
+  "must": true
  },
  {
   "id": "s-pedra-bonita",
@@ -137,7 +202,12 @@
   "note": "Trilha curta, vista da rampa de voo livre.",
   "link": "",
   "addedBy": "lista",
-  "createdAt": 1790600000013
+  "createdAt": 1790600000013,
+  "wiki": "Pedra Bonita (Rio de Janeiro)",
+  "region": "Zona Sul",
+  "time": "1h30, fácil",
+  "cost": 0,
+  "must": false
  },
  {
   "id": "s-pedra-da-gavea",
@@ -147,7 +217,12 @@
   "note": "Trilha pesada com escalaminhada. Pra quem tá em forma.",
   "link": "",
   "addedBy": "lista",
-  "createdAt": 1790600000014
+  "createdAt": 1790600000014,
+  "wiki": "Pedra da Gávea",
+  "region": "Zona Sul",
+  "time": "Dia inteiro, pesada",
+  "cost": 0,
+  "must": false
  },
  {
   "id": "s-voo-de-asa-delta-ou-parapente",
@@ -157,7 +232,12 @@
   "note": "Sai da Pedra Bonita e pousa na praia de São Conrado.",
   "link": "",
   "addedBy": "lista",
-  "createdAt": 1790600000015
+  "createdAt": 1790600000015,
+  "wiki": "Asa-delta",
+  "region": "Zona Sul",
+  "time": "1h",
+  "cost": 3,
+  "must": false
  },
  {
   "id": "s-parque-nacional-da-tijuca",
@@ -167,7 +247,12 @@
   "note": "Vista Chinesa, cachoeiras e o Pico da Tijuca.",
   "link": "",
   "addedBy": "lista",
-  "createdAt": 1790600000016
+  "createdAt": 1790600000016,
+  "wiki": "Parque Nacional da Tijuca",
+  "region": "Zona Norte",
+  "time": "Meio dia",
+  "cost": 0,
+  "must": false
  },
  {
   "id": "s-mirante-dona-marta",
@@ -177,7 +262,12 @@
   "note": "Vista do Cristo, Pão de Açúcar e Botafogo, de graça.",
   "link": "",
   "addedBy": "lista",
-  "createdAt": 1790600000017
+  "createdAt": 1790600000017,
+  "wiki": "Mirante Dona Marta",
+  "region": "Zona Sul",
+  "time": "1h",
+  "cost": 0,
+  "must": false
  },
  {
   "id": "s-trilha-do-telegrafo",
@@ -187,7 +277,12 @@
   "note": "Trilha curta até a pedra da foto famosa, na beira do abismo.",
   "link": "",
   "addedBy": "lista",
-  "createdAt": 1790600000018
+  "createdAt": 1790600000018,
+  "wiki": "Pedra do Telégrafo",
+  "region": "Zona Oeste",
+  "time": "Dia inteiro, fila pra foto",
+  "cost": 0,
+  "must": false
  },
  {
   "id": "s-parque-lage",
@@ -197,7 +292,12 @@
   "note": "Casarão com café, ponto de partida da trilha pro Cristo.",
   "link": "",
   "addedBy": "lista",
-  "createdAt": 1790600000019
+  "createdAt": 1790600000019,
+  "wiki": "Parque Lage",
+  "region": "Zona Sul",
+  "time": "1 a 2h",
+  "cost": 0,
+  "must": false
  },
  {
   "id": "s-cristo-redentor",
@@ -207,7 +307,12 @@
   "note": "Sobe de trem do Cosme Velho ou de van. Vai cedo pra fugir da fila.",
   "link": "",
   "addedBy": "lista",
-  "createdAt": 1790600000020
+  "createdAt": 1790600000020,
+  "wiki": "Cristo Redentor",
+  "region": "Zona Sul",
+  "time": "3h",
+  "cost": 3,
+  "must": true
  },
  {
   "id": "s-escadaria-selaron",
@@ -217,7 +322,12 @@
   "note": "Degraus cobertos de azulejos do mundo todo.",
   "link": "",
   "addedBy": "lista",
-  "createdAt": 1790600000021
+  "createdAt": 1790600000021,
+  "wiki": "Escadaria Selarón",
+  "region": "Centro",
+  "time": "30 min",
+  "cost": 0,
+  "must": true
  },
  {
   "id": "s-arcos-da-lapa",
@@ -227,7 +337,12 @@
   "note": "Aqueduto antigo, cartão-postal da Lapa.",
   "link": "",
   "addedBy": "lista",
-  "createdAt": 1790600000022
+  "createdAt": 1790600000022,
+  "wiki": "Arcos da Lapa",
+  "region": "Centro",
+  "time": "30 min",
+  "cost": 0,
+  "must": false
  },
  {
   "id": "s-bondinho-de-santa-teresa",
@@ -237,7 +352,12 @@
   "note": "Bonde amarelo que sai do Centro e sobe pelo bairro.",
   "link": "",
   "addedBy": "lista",
-  "createdAt": 1790600000023
+  "createdAt": 1790600000023,
+  "wiki": "Bonde de Santa Teresa",
+  "region": "Centro",
+  "time": "2h",
+  "cost": 1,
+  "must": false
  },
  {
   "id": "s-maracana",
@@ -247,7 +367,12 @@
   "note": "Pega um jogo ou faz o tour pelo estádio.",
   "link": "",
   "addedBy": "lista",
-  "createdAt": 1790600000024
+  "createdAt": 1790600000024,
+  "wiki": "Estádio do Maracanã",
+  "region": "Zona Norte",
+  "time": "2h ou um jogo",
+  "cost": 2,
+  "must": false
  },
  {
   "id": "s-jardim-botanico",
@@ -257,7 +382,12 @@
   "note": "Aleia das palmeiras imperiais, orquidário e muito verde.",
   "link": "",
   "addedBy": "lista",
-  "createdAt": 1790600000025
+  "createdAt": 1790600000025,
+  "wiki": "Jardim Botânico do Rio de Janeiro",
+  "region": "Zona Sul",
+  "time": "2h",
+  "cost": 1,
+  "must": false
  },
  {
   "id": "s-lagoa-rodrigo-de-freitas",
@@ -267,7 +397,12 @@
   "note": "Volta de bike ou pedalinho, quiosques à noite.",
   "link": "",
   "addedBy": "lista",
-  "createdAt": 1790600000026
+  "createdAt": 1790600000026,
+  "wiki": "Lagoa Rodrigo de Freitas",
+  "region": "Zona Sul",
+  "time": "2h",
+  "cost": 0,
+  "must": false
  },
  {
   "id": "s-boulevard-olimpico-e-praca-maua",
@@ -277,7 +412,12 @@
   "note": "Orla revitalizada, mural Etnias do Kobra.",
   "link": "",
   "addedBy": "lista",
-  "createdAt": 1790600000027
+  "createdAt": 1790600000027,
+  "wiki": "Boulevard Olímpico",
+  "region": "Centro",
+  "time": "2h",
+  "cost": 0,
+  "must": false
  },
  {
   "id": "s-forte-de-copacabana",
@@ -287,7 +427,12 @@
   "note": "Museu, vista da praia e café no forte.",
   "link": "",
   "addedBy": "lista",
-  "createdAt": 1790600000028
+  "createdAt": 1790600000028,
+  "wiki": "Forte de Copacabana",
+  "region": "Zona Sul",
+  "time": "1h30",
+  "cost": 1,
+  "must": false
  },
  {
   "id": "s-mureta-da-urca",
@@ -297,7 +442,12 @@
   "note": "Senta na mureta com cerveja e petisco vendo a baía.",
   "link": "",
   "addedBy": "lista",
-  "createdAt": 1790600000029
+  "createdAt": 1790600000029,
+  "wiki": "Urca",
+  "region": "Zona Sul",
+  "time": "Fim de tarde",
+  "cost": 1,
+  "must": true
  },
  {
   "id": "s-confeitaria-colombo",
@@ -307,7 +457,12 @@
   "note": "Salão de 1894 com espelhos belgas. Pede um doce e um café.",
   "link": "",
   "addedBy": "lista",
-  "createdAt": 1790600000030
+  "createdAt": 1790600000030,
+  "wiki": "Confeitaria Colombo",
+  "region": "Centro",
+  "time": "1h",
+  "cost": 2,
+  "must": false
  },
  {
   "id": "s-museu-do-amanha",
@@ -317,7 +472,12 @@
   "note": "Museu de ciência do Calatrava na Praça Mauá.",
   "link": "",
   "addedBy": "lista",
-  "createdAt": 1790600000031
+  "createdAt": 1790600000031,
+  "wiki": "Museu do Amanhã",
+  "region": "Centro",
+  "time": "2h",
+  "cost": 1,
+  "must": true
  },
  {
   "id": "s-museu-de-arte-do-rio-mar",
@@ -327,7 +487,12 @@
   "note": "Arte e história do Rio, terraço com vista da baía.",
   "link": "",
   "addedBy": "lista",
-  "createdAt": 1790600000032
+  "createdAt": 1790600000032,
+  "wiki": "Museu de Arte do Rio",
+  "region": "Centro",
+  "time": "2h",
+  "cost": 1,
+  "must": false
  },
  {
   "id": "s-aquario",
@@ -337,7 +502,12 @@
   "note": "Maior aquário marinho da América do Sul.",
   "link": "",
   "addedBy": "lista",
-  "createdAt": 1790600000033
+  "createdAt": 1790600000033,
+  "wiki": "AquaRio",
+  "region": "Centro",
+  "time": "2h",
+  "cost": 2,
+  "must": false
  },
  {
   "id": "s-real-gabinete-portugues-de-leitura",
@@ -347,7 +517,12 @@
   "note": "Biblioteca que parece cenário de filme. Entrada gratuita.",
   "link": "",
   "addedBy": "lista",
-  "createdAt": 1790600000034
+  "createdAt": 1790600000034,
+  "wiki": "Real Gabinete Português de Leitura",
+  "region": "Centro",
+  "time": "30 min",
+  "cost": 0,
+  "must": false
  },
  {
   "id": "s-cafe-da-manha-caprichado",
@@ -358,7 +533,12 @@
   "link": "",
   "addedBy": "lista",
   "createdAt": 1790600000035,
-  "maps": "café da manhã Rio de Janeiro"
+  "maps": "café da manhã Rio de Janeiro",
+  "wiki": "Pão na chapa",
+  "region": "Qualquer bairro",
+  "time": "1h",
+  "cost": 2,
+  "must": false
  },
  {
   "id": "s-almoco-num-lugar-top",
@@ -369,7 +549,12 @@
   "link": "",
   "addedBy": "lista",
   "createdAt": 1790600000036,
-  "maps": "restaurante Rio de Janeiro"
+  "maps": "restaurante Rio de Janeiro",
+  "wiki": "Feijoada",
+  "region": "Zona Sul",
+  "time": "2h",
+  "cost": 3,
+  "must": true
  },
  {
   "id": "s-prato-feito-carioca",
@@ -380,7 +565,12 @@
   "link": "",
   "addedBy": "lista",
   "createdAt": 1790600000037,
-  "maps": "prato feito Rio de Janeiro"
+  "maps": "prato feito Rio de Janeiro",
+  "wiki": "Prato feito",
+  "region": "Qualquer bairro",
+  "time": "1h",
+  "cost": 1,
+  "must": false
  },
  {
   "id": "s-rodizio-de-churrascaria",
@@ -391,7 +581,12 @@
   "link": "",
   "addedBy": "lista",
   "createdAt": 1790600000038,
-  "maps": "churrascaria rodízio Rio de Janeiro"
+  "maps": "churrascaria rodízio Rio de Janeiro",
+  "wiki": "Churrascaria",
+  "region": "Zona Sul ou Barra",
+  "time": "2h",
+  "cost": 3,
+  "must": false
  },
  {
   "id": "s-peixe-e-frutos-do-mar-na-orla",
@@ -402,7 +597,12 @@
   "link": "",
   "addedBy": "lista",
   "createdAt": 1790600000039,
-  "maps": "restaurante frutos do mar Rio de Janeiro"
+  "maps": "restaurante frutos do mar Rio de Janeiro",
+  "wiki": "Moqueca",
+  "region": "Orla",
+  "time": "2h",
+  "cost": 3,
+  "must": false
  },
  {
   "id": "s-jantar-especial-com-vista",
@@ -413,7 +613,12 @@
   "link": "",
   "addedBy": "lista",
   "createdAt": 1790600000040,
-  "maps": "restaurante com vista Rio de Janeiro"
+  "maps": "restaurante com vista Rio de Janeiro",
+  "wiki": "Baía de Guanabara",
+  "region": "Zona Sul",
+  "time": "2h30",
+  "cost": 3,
+  "must": false
  },
  {
   "id": "s-boteco-com-petisco-e-chope",
@@ -424,7 +629,12 @@
   "link": "",
   "addedBy": "lista",
   "createdAt": 1790600000041,
-  "maps": "boteco Rio de Janeiro"
+  "maps": "boteco Rio de Janeiro",
+  "wiki": "Botequim",
+  "region": "Qualquer bairro",
+  "time": "Fim de tarde",
+  "cost": 2,
+  "must": true
  },
  {
   "id": "s-pastel-e-caldo-de-cana-na-feira",
@@ -435,7 +645,12 @@
   "link": "",
   "addedBy": "lista",
   "createdAt": 1790600000042,
-  "maps": "pastel de feira Rio de Janeiro"
+  "maps": "pastel de feira Rio de Janeiro",
+  "wiki": "Pastel",
+  "region": "Feira de rua",
+  "time": "30 min",
+  "cost": 1,
+  "must": false
  },
  {
   "id": "s-mate-e-biscoito-globo-na-praia",
@@ -445,7 +660,12 @@
   "note": "Obrigatório. Média R$ 15 a 20 por pessoa.",
   "link": "",
   "addedBy": "lista",
-  "createdAt": 1790600000043
+  "createdAt": 1790600000043,
+  "wiki": "Biscoito Globo",
+  "region": "Orla",
+  "time": "Na praia",
+  "cost": 1,
+  "must": true
  },
  {
   "id": "s-lapa-a-noite",
@@ -455,7 +675,12 @@
   "note": "Rua lotada, bares e casas de samba. Fica esperto com o celular.",
   "link": "",
   "addedBy": "lista",
-  "createdAt": 1790600000044
+  "createdAt": 1790600000044,
+  "wiki": "Lapa (Rio de Janeiro)",
+  "region": "Centro",
+  "time": "A noite toda",
+  "cost": 2,
+  "must": true
  },
  {
   "id": "s-roda-de-samba",
@@ -466,7 +691,12 @@
   "link": "",
   "addedBy": "lista",
   "createdAt": 1790600000045,
-  "maps": "roda de samba Rio de Janeiro"
+  "maps": "roda de samba Rio de Janeiro",
+  "wiki": "Pedra do Sal",
+  "region": "Centro",
+  "time": "A noite toda",
+  "cost": 1,
+  "must": true
  },
  {
   "id": "s-ensaio-de-escola-de-samba",
@@ -476,7 +706,12 @@
   "note": "Mangueira, Salgueiro, Portela. Ensaios de agosto a fevereiro.",
   "link": "",
   "addedBy": "lista",
-  "createdAt": 1790600000046
+  "createdAt": 1790600000046,
+  "wiki": "Estação Primeira de Mangueira",
+  "region": "Zona Norte",
+  "time": "A noite toda",
+  "cost": 2,
+  "must": false
  },
  {
   "id": "s-baile-funk",
@@ -486,7 +721,12 @@
   "note": "Vai com quem conhece.",
   "link": "",
   "addedBy": "lista",
-  "createdAt": 1790600000047
+  "createdAt": 1790600000047,
+  "wiki": "Baile funk",
+  "region": "Varia",
+  "time": "A noite toda",
+  "cost": 1,
+  "must": false
  },
  {
   "id": "s-bar-de-rua-lotado",
@@ -497,7 +737,12 @@
   "link": "",
   "addedBy": "lista",
   "createdAt": 1790600000048,
-  "maps": "Baixo Gávea Rio de Janeiro"
+  "maps": "Baixo Gávea Rio de Janeiro",
+  "wiki": "Gávea (bairro do Rio de Janeiro)",
+  "region": "Zona Sul",
+  "time": "A noite toda",
+  "cost": 2,
+  "must": false
  },
  {
   "id": "s-barca-para-niteroi-e-mac",
@@ -507,7 +752,12 @@
   "note": "Barca de 20 min com vista da baía e o museu do Niemeyer.",
   "link": "",
   "addedBy": "lista",
-  "createdAt": 1790600000049
+  "createdAt": 1790600000049,
+  "wiki": "Museu de Arte Contemporânea de Niterói",
+  "region": "Niterói",
+  "time": "Meio dia",
+  "cost": 1,
+  "must": false
  },
  {
   "id": "s-passeio-de-barco-pela-baia",
@@ -517,7 +767,12 @@
   "note": "Escuna passando pelo Pão de Açúcar e ilhas.",
   "link": "",
   "addedBy": "lista",
-  "createdAt": 1790600000050
+  "createdAt": 1790600000050,
+  "wiki": "Baía de Guanabara",
+  "region": "Zona Sul",
+  "time": "2 a 3h",
+  "cost": 3,
+  "must": false
  },
  {
   "id": "s-pedalada-na-orla",
@@ -527,7 +782,12 @@
   "note": "Bike alugada pelo app, do Leme ao Leblon. Domingo a pista fecha pros carros.",
   "link": "",
   "addedBy": "lista",
-  "createdAt": 1790600000051
+  "createdAt": 1790600000051,
+  "wiki": "Ciclovia da Orla",
+  "region": "Zona Sul",
+  "time": "2h",
+  "cost": 1,
+  "must": false
  },
  {
   "id": "s-arraial-do-cabo",
@@ -537,7 +797,12 @@
   "note": "Água azul-turquesa, passeio de barco. Bate-volta de 3h.",
   "link": "",
   "addedBy": "lista",
-  "createdAt": 1790600000052
+  "createdAt": 1790600000052,
+  "wiki": "Arraial do Cabo",
+  "region": "Fora do Rio (3h)",
+  "time": "Dia inteiro",
+  "cost": 3,
+  "must": false
  },
  {
   "id": "s-buzios",
@@ -547,7 +812,12 @@
   "note": "Praias e Rua das Pedras. Melhor com pernoite.",
   "link": "",
   "addedBy": "lista",
-  "createdAt": 1790600000053
+  "createdAt": 1790600000053,
+  "wiki": "Armação dos Búzios",
+  "region": "Fora do Rio (3h)",
+  "time": "1 ou 2 dias",
+  "cost": 3,
+  "must": false
  },
  {
   "id": "s-petropolis",
@@ -557,7 +827,12 @@
   "note": "Museu Imperial e cervejarias. 1h de estrada.",
   "link": "",
   "addedBy": "lista",
-  "createdAt": 1790600000054
+  "createdAt": 1790600000054,
+  "wiki": "Petrópolis",
+  "region": "Fora do Rio (1h)",
+  "time": "Dia inteiro",
+  "cost": 2,
+  "must": false
  },
  {
   "id": "s-ilha-grande",
@@ -567,6 +842,11 @@
   "note": "Lopes Mendes e trilhas. Pede no mínimo 2 dias.",
   "link": "",
   "addedBy": "lista",
-  "createdAt": 1790600000055
+  "createdAt": 1790600000055,
+  "wiki": "Ilha Grande (Angra dos Reis)",
+  "region": "Fora do Rio (3h)",
+  "time": "2 dias ou mais",
+  "cost": 3,
+  "must": false
  }
 ]
