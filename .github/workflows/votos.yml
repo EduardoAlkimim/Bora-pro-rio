@@ -1,0 +1,37 @@
+# Ferramenta manual: lista quem votou ou apaga os votos de uma pessoa.
+# Actions → "Votos" → Run workflow.
+name: Votos
+on:
+  workflow_dispatch:
+    inputs:
+      acao:
+        description: "listar ou apagar"
+        required: true
+        default: listar
+        type: choice
+        options: [listar, apagar]
+      nome:
+        description: "Nome exato da pessoa (pra apagar)"
+        required: false
+jobs:
+  votos:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Votos
+        env:
+          ACAO: ${{ inputs.acao }}
+          NOME: ${{ inputs.nome }}
+        run: |
+          URL=$(grep -o 'https://[a-z0-9]*\.supabase\.co' config.js)
+          KEY=$(grep -o 'sb_publishable_[A-Za-z0-9_-]*' config.js)
+          if [ "$ACAO" = "apagar" ]; then
+            [ -n "$NOME" ] || { echo "::error::Falta o nome"; exit 1; }
+            Q=$(python3 -c 'import urllib.parse,os;print(urllib.parse.quote(os.environ["NOME"]))')
+            N=$(curl -fsS -X DELETE "$URL/rest/v1/votes?voter_name=eq.$Q" -H "apikey: $KEY" -H "Prefer: return=representation" | python3 -c 'import json,sys;print(len(json.load(sys.stdin)))')
+            echo "::notice::Apagados $N votos de $NOME"
+          fi
+          curl -fsS "$URL/rest/v1/votes?select=voter_id,voter_name&limit=10000" -H "apikey: $KEY" | python3 -c '
+          import json,sys,collections
+          c=collections.Counter((v["voter_name"],v["voter_id"][:6]) for v in json.load(sys.stdin))
+          print("::notice::Votos por pessoa: "+(", ".join(f"{n} [{i}]={k}" for (n,i),k in c.most_common()) or "nenhum"))'
